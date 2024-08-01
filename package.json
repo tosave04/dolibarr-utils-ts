@@ -1,0 +1,30 @@
+{
+  "name": "dolibarr-utils-ts",
+  "version": "0.1.0",
+  "description": "Typescript communication tools, zod schemas and utils for Dolibarr REST API",
+  "main": "dist/dolibarr-utils-ts.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "dolibarr",
+    "typescript",
+    "rest",
+    "api",
+    "utils",
+    "interface",
+    "zod"
+  ],
+  "author": "Thomas Savournin <tosave.vbl@gmail.com>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.3",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}
