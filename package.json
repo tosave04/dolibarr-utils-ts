@@ -4,7 +4,8 @@
   "description": "Typescript communication tools, zod schemas and utils for Dolibarr REST API",
   "main": "dist/dolibarr-utils-ts.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "npx tsc"
   },
   "keywords": [
     "dolibarr",

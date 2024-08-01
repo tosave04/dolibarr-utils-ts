@@ -1,5 +1,5 @@
 import { Dolibarr } from "../dolibarr.class"
-import { Category } from "../interfaces/Category.interfaces"
+import type { Category } from "../interfaces/Category.interfaces"
 import type { Contact } from "../interfaces/Contact.interfaces"
 
 export function contacts(this: Dolibarr) {

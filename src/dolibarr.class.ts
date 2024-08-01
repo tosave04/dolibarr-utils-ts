@@ -219,7 +219,7 @@ export class Dolibarr {
 	// object = object.call<this, [], ReturnType<typeof object>>(this)
 	// object = object.call(this)
 
-	/** Modules */
+	/** Ping */
 
 	ping = (init?: RequestInit) => this.status.getStatus(init)
 }

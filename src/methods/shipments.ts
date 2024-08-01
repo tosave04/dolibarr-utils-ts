@@ -1,5 +1,5 @@
 import { Dolibarr } from "../dolibarr.class"
-import { Shipment } from "../interfaces/Shipment.interfaces"
+import type { Shipment } from "../interfaces/Shipment.interfaces"
 
 export function shipments(this: Dolibarr) {
 	const list = this.commonList<ShipmentsListParameters, Shipment>("shipments")
