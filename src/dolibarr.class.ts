@@ -1,4 +1,4 @@
-import { get, post, put, deleteRequest } from "./methods/_rest"
+import { get, post, put, deleteRequest, patch } from "./methods/_rest"
 import { agendaevents } from "./methods/agendaevents"
 import { bankaccounts } from "./methods/bankaccounts"
 import { categories } from "./methods/categories"
@@ -65,6 +65,13 @@ export class Dolibarr {
 
 	put = <R>(input: string, data: Record<string, unknown>, init?: RequestInit) =>
 		put.call<this, [string, Record<string, unknown>, RequestInit | undefined], Promise<R>>(this, input, data, init)
+
+	patch = <R>(input: string, data?: Record<string, unknown> | Record<string, unknown>[], init?: RequestInit) =>
+		patch.call<
+			this,
+			[string, Record<string, unknown> | Record<string, unknown>[] | undefined, RequestInit | undefined],
+			Promise<R>
+		>(this, input, data, init)
 
 	/** CRUD methods */
 

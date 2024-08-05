@@ -72,6 +72,29 @@ export async function put<R>(
 	return response.json()
 }
 
+export async function patch<R>(
+	this: Dolibarr,
+	input: string,
+	data?: Record<string, unknown> | Record<string, unknown>[],
+	init?: RequestInit
+): Promise<R> {
+	const response = await fetch(composeUrl(this.api_url, input), {
+		...init,
+		method: "PATCH",
+		headers: {
+			Accept: "application/json",
+			DOLAPIKEY: this.api_key,
+			"Content-Type": "application/json;charset=utf-8",
+			...init?.headers,
+		},
+		body: init?.body ? init.body : dataToJsonBody(data),
+	})
+	if (!response.ok) {
+		throw new Error(response.statusText)
+	}
+	return response.json()
+}
+
 export async function deleteRequest<R>(
 	this: Dolibarr,
 	input: string,
