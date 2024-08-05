@@ -1,4 +1,5 @@
 import { Dolibarr } from "../dolibarr.class"
+import type { Group } from "../interfaces/Group.interface"
 import type { User } from "../interfaces/User.interfaces"
 
 export function users(this: Dolibarr) {
@@ -12,19 +13,33 @@ export function users(this: Dolibarr) {
 
 	const update = this.commonUpdate<User>("users")
 
-	const getGroups = null
+	const getGroups = (id: number, init?: RequestInit) => this.get<Group[]>(`users/${id}/groups`, undefined, init)
 
-	const linkGroup = null
+	const linkGroup = (id: number, group: number, parameters?: { entity?: number }, init?: RequestInit) =>
+		this.get<unknown>(`users/${id}/setGroup/${group}`, parameters, init)
 
-	const getByEmail = null
+	const getByEmail = this.commonGetByEmail<{ includepermissions?: number }, User>("users")
 
-	const groupsList = null
+	const groupsList = (
+		parameters?: {
+			sortfield?: string
+			sortorder?: "ASC" | "DESC"
+			limit?: number
+			page?: number
+			group_ids?: string
+			sqlfilters?: string
+		},
+		init?: RequestInit
+	) => this.get<Group[]>(`users/groups`, parameters, init)
 
-	const getGroup = null
+	const getGroup = (group: number, parameters?: { load_members?: number }, init?: RequestInit) =>
+		this.get<Group>(`users/groups/${group}`, parameters, init)
 
-	const getMoreById = null
+	const getUserProperties = (parameters?: { includepermissions?: number }, init?: RequestInit) =>
+		this.get<User>(`users/info`, parameters, init)
 
-	const getByLogin = null
+	const getByLogin = (login: string, parameters?: { includepermissions?: number }, init?: RequestInit) =>
+		this.get<User>(`users/login/${login}`, parameters, init)
 
 	return {
 		list,
@@ -37,7 +52,7 @@ export function users(this: Dolibarr) {
 		getByEmail,
 		groupsList,
 		getGroup,
-		getMoreById,
+		getUserProperties,
 		getByLogin,
 	}
 }
