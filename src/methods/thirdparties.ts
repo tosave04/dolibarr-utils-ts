@@ -1,4 +1,12 @@
 import { Dolibarr } from "../dolibarr.class"
+import type { CompanyBankAccount } from "../interfaces/CompanyBankAccount.interface"
+import type { CustomerCategory } from "../interfaces/CustomerCategory.interface"
+import type { Gateway } from "../interfaces/Gateway.interface"
+import type { Invoice } from "../interfaces/Invoice.interfaces"
+import type { Order } from "../interfaces/Order.interfaces"
+import type { Proposal } from "../interfaces/Proposal.interfaces"
+import type { Representative } from "../interfaces/Representative.interface"
+import type { SupplierCategory } from "../interfaces/SupplierCategory.interface"
 import type { Thirdparty } from "../interfaces/Thirdparty.interfaces"
 
 export function thirdparties(this: Dolibarr) {
@@ -12,59 +20,115 @@ export function thirdparties(this: Dolibarr) {
 
 	const update = this.commonUpdate<Thirdparty>("thirdparties")
 
-	const getBankAccount = null
+	const getBankAccount = (id: number, init?: RequestInit) =>
+		this.get<CompanyBankAccount>(`thirdparties/${id}/bankaccounts`, undefined, init)
 
-	const createBankAccount = null
+	const createBankAccount = (id: number, data: Partial<CompanyBankAccount>, init?: RequestInit) =>
+		this.post<number>(`thirdparties/${id}/bankaccounts`, data, init)
 
-	const deleteBankAccount = null
+	const deleteBankAccount = (id: number, bankaccount_id: number, init?: RequestInit) =>
+		this.delete<{ success: { code: number; message: string } }>(
+			`thirdparties/${id}/bankaccounts/${bankaccount_id}`,
+			undefined,
+			init
+		)
 
-	const updateBankAccount = null
+	const updateBankAccount = (id: number, bankaccount_id: number, data: Record<string, unknown>, init?: RequestInit) =>
+		this.update<CompanyBankAccount>(`thirdparties/${id}/bankaccounts/${bankaccount_id}`, data, init)
 
-	const getCustomerCategories = null
+	const getCustomerCategories = (
+		id: number,
+		parameters?: { sortfield?: string; sortorder?: "ASC" | "DESC"; limit?: number; page?: number },
+		init?: RequestInit
+	) => this.get<CustomerCategory[]>(`thirdparties/${id}/categories`, parameters, init)
 
-	const unlinkCustomerCategory = null
+	const unlinkCustomerCategory = (id: number, category_id: number, init?: RequestInit) =>
+		this.delete<{ success: { code: number; message: string } }>(
+			`thirdparties/${id}/categories/${category_id}`,
+			undefined,
+			init
+		)
 
-	const linkCustomerCategory = null
+	const linkCustomerCategory = (id: number, category_id: number, init?: RequestInit) =>
+		this.post<number>(`thirdparties/${id}/categories/${category_id}`, undefined, init)
 
-	const getFixedAmountDiscounts = null
+	const getFixedAmountDiscounts = (
+		id: number,
+		parameters?: {
+			filter?: "none" | "available" | "used"
+			sortfield?: string
+			sortorder?: "ASC" | "DESC"
+		},
+		init?: RequestInit
+	) => this.get<unknown[]>(`thirdparties/${id}/fixedamountdiscounts`, parameters, init)
 
-	const deleteGateways = null
+	const deleteGateways = (id: number, init?: RequestInit) =>
+		this.delete<{ success: { code: number; message: string } }>(`thirdparties/${id}/gateways`, undefined, init)
 
-	const getSpecificGateway = null
+	const getSpecificGateway = (id: number, parameters?: { site?: string }, init?: RequestInit) =>
+		this.get<unknown>(`thirdparties/${id}/gateways`, parameters, init)
 
-	const addNewGateway = null
+	const addNewGateway = (id: number, data: Partial<Gateway>, init?: RequestInit) =>
+		this.post<number>(`thirdparties/${id}/gateways`, data, init)
 
-	const deleteSpecificGateway = null
+	const deleteSpecificGateway = (id: number, site: number, init?: RequestInit) =>
+		this.delete<{ success: { code: number; message: string } }>(`thirdparties/${id}/gateways/${site}`, undefined, init)
 
-	const addSpecificGateway = null
+	const updateSpecificGateway = (id: number, site: number, data: Partial<Gateway>, init?: RequestInit) =>
+		this.update<Gateway>(`thirdparties/${id}/gateways/${site}`, data, init)
 
-	const updateSpecificGateway = addSpecificGateway
+	const addSpecificGateway = (id: number, site: number, data: Gateway, init?: RequestInit) =>
+		this.patch<Gateway>(`thirdparties/${id}/gateways/${site}`, data, init)
 
-	const generateBankAccountDocument = null
+	const generateBankAccountDocument = (id: number, companybankid: number, model?: string, init?: RequestInit) =>
+		this.get<unknown>(
+			`thirdparties/${id}/generateBankAccountDocument/${companybankid}/${model ?? "sepamandate"}`,
+			undefined,
+			init
+		)
 
-	const getInvoicesQualifiedForCreditNote = null
+	const getInvoicesQualifiedForCreditNote = (id: number, init?: RequestInit) =>
+		this.get<Invoice[]>(`thirdparties/${id}/getinvoicesqualifiedforcreditnote`, undefined, init)
 
-	const getInvoicesQualifiedForReplacement = null
+	const getInvoicesQualifiedForReplacement = (id: number, init?: RequestInit) =>
+		this.get<Invoice[]>(`thirdparties/${id}/getinvoicesqualifiedforreplacement`, undefined, init)
 
-	const merge = null
+	const merge = (id: number, idtodelete: number, init?: RequestInit) =>
+		this.put<Thirdparty>(`thirdparties/${id}/merge/${idtodelete}`, {}, init)
 
-	const getOustandingInvoices = null
+	const getOustandingInvoices = (id: number, parameters?: { mode?: "customer" | "supplier" }, init?: RequestInit) =>
+		this.get<Invoice[]>(`thirdparties/${id}/outstandinginvoices`, parameters, init)
 
-	const getOustandingOrders = null
+	const getOustandingOrders = (id: number, parameters?: { mode?: "customer" | "supplier" }, init?: RequestInit) =>
+		this.get<Order[]>(`thirdparties/${id}/outstandingorders`, parameters, init)
 
-	const getOustandingProposals = null
+	const getOustandingProposals = (id: number, parameters?: { mode?: "customer" | "supplier" }, init?: RequestInit) =>
+		this.get<Proposal[]>(`thirdparties/${id}/outstandingproposals`, parameters, init)
 
-	const getRepresentatives = null
+	const getRepresentatives = (id: number, parameters?: { mode?: 0 | 1 }, init?: RequestInit) =>
+		this.get<Representative[]>(`thirdparties/${id}/representatives`, parameters, init)
 
-	const setPriceLevel = null
+	const setPriceLevel = (id: number, data: { priceLevel: number }, init?: RequestInit) =>
+		this.put<Thirdparty>(`thirdparties/${id}/setpricelevel`, data, init)
 
-	const getSupplierCategories = null
+	const getSupplierCategories = (
+		id: number,
+		parameters?: { sortfield?: string; sortorder?: "ASC" | "DESC"; limit?: number; page?: number },
+		init?: RequestInit
+	) => this.get<SupplierCategory[]>(`thirdparties/${id}/supplier_categories`, parameters, init)
 
-	const unlinkSupplierCategory = null
+	const unlinkSupplierCategory = (id: number, category_id: number, init?: RequestInit) =>
+		this.delete<{ success: { code: number; message: string } }>(
+			`thirdparties/${id}/supplier_categories/${category_id}`,
+			undefined,
+			init
+		)
 
-	const linkSupplierCategory = null
+	const linkSupplierCategory = (id: number, category_id: number, init?: RequestInit) =>
+		this.post<number>(`thirdparties/${id}/supplier_categories/${category_id}`, undefined, init)
 
-	const getByCode = null
+	const getByCode = (barcode: string, init?: RequestInit) =>
+		this.get<Thirdparty>(`thirdparties/barcode/${barcode}`, undefined, init)
 
 	const getByEmail = this.commonGetByEmail<{}, Thirdparty>("thirdparties")
 
