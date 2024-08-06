@@ -1,5 +1,5 @@
 import { Dolibarr } from "../dolibarr.class"
-import type { CompanyBankAccount } from "../interfaces/CompanyBankAccount.interface"
+import type { BankAccount } from "../interfaces/BankAccount.interface"
 import type { CustomerCategory } from "../interfaces/CustomerCategory.interface"
 import type { Gateway } from "../interfaces/Gateway.interface"
 import type { Invoice } from "../interfaces/Invoice.interfaces"
@@ -21,9 +21,9 @@ export function thirdparties(this: Dolibarr) {
 	const update = this.commonUpdate<Thirdparty>("thirdparties")
 
 	const getBankAccount = (id: number, init?: RequestInit) =>
-		this.get<CompanyBankAccount>(`thirdparties/${id}/bankaccounts`, undefined, init)
+		this.get<BankAccount>(`thirdparties/${id}/bankaccounts`, undefined, init)
 
-	const createBankAccount = (id: number, data: Partial<CompanyBankAccount>, init?: RequestInit) =>
+	const createBankAccount = (id: number, data: Partial<BankAccount>, init?: RequestInit) =>
 		this.post<number>(`thirdparties/${id}/bankaccounts`, data, init)
 
 	const deleteBankAccount = (id: number, bankaccount_id: number, init?: RequestInit) =>
@@ -34,7 +34,7 @@ export function thirdparties(this: Dolibarr) {
 		)
 
 	const updateBankAccount = (id: number, bankaccount_id: number, data: Record<string, unknown>, init?: RequestInit) =>
-		this.update<CompanyBankAccount>(`thirdparties/${id}/bankaccounts/${bankaccount_id}`, data, init)
+		this.update<BankAccount>(`thirdparties/${id}/bankaccounts/${bankaccount_id}`, data, init)
 
 	const getCustomerCategories = (
 		id: number,

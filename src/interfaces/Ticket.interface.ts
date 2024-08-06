@@ -1,6 +1,76 @@
 import { z } from "zod"
+import { TicketCategorySchema } from "./TicketCategory.interface"
+import { TicketSeveritySchema } from "./TicketSeverity.interface"
+import { TicketTypeSchema } from "./TicketType.interface"
 
-// TODO: Define the Ticket interface
-export const TicketSchema = z.object({}).partial().catchall(z.any())
+export const TicketSchema = z
+	.object({
+		track_id: z.string(),
+		fk_soc: z.any(),
+		fk_project: z.any(),
+		origin_email: z.any(),
+		fk_user_create: z.string(),
+		fk_user_assign: z.any(),
+		subject: z.string(),
+		message: z.string(),
+		fk_statut: z.string(),
+		status: z.string(),
+		resolution: z.any(),
+		progress: z.string(),
+		timing: z.any(),
+		type_code: TicketTypeSchema.shape.code,
+		category_code: TicketCategorySchema.shape.code,
+		severity_code: TicketSeveritySchema.shape.code,
+		type_label: TicketTypeSchema.shape.label,
+		category_label: TicketCategorySchema.shape.label,
+		severity_label: TicketSeveritySchema.shape.label,
+		email_from: z.any(),
+		datec: z.number(),
+		date_read: z.string(),
+		date_last_msg_sent: z.string(),
+		date_close: z.string(),
+		notify_tiers_at_create: z.any(),
+		email_msgid: z.any(),
+		email_date: z.string(),
+		ip: z.any(),
+		lines: z.any(),
+		id: z.string(),
+		entity: z.string(),
+		import_key: z.any(),
+		array_options: z.array(z.any()),
+		array_languages: z.any(),
+		contacts_ids: z.any(),
+		linked_objects: z.any(),
+		linkedObjectsIds: z.any(),
+		user: z.any(),
+		origin: z.any(),
+		origin_id: z.any(),
+		ref: z.string(),
+		state_id: z.any(),
+		region_id: z.any(),
+		demand_reason_id: z.any(),
+		transport_mode_id: z.any(),
+		model_pdf: z.any(),
+		last_main_doc: z.any(),
+		fk_bank: z.any(),
+		date_creation: z.number(),
+		date_validation: z.string(),
+		date_modification: z.number(),
+		date_cloture: z.any(),
+		user_author: z.any(),
+		user_creation: z.any(),
+		user_creation_id: z.any(),
+		user_valid: z.any(),
+		user_validation: z.any(),
+		user_validation_id: z.any(),
+		user_closing_id: z.any(),
+		user_modification: z.any(),
+		user_modification_id: z.any(),
+		specimen: z.number(),
+		socid: z.any(),
+		tms: z.number(),
+	})
+	.partial()
+	.catchall(z.any())
 
 export interface Ticket extends z.infer<typeof TicketSchema> {}
