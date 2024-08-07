@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { BankAccountLineSchema } from "./BankAccountLine.interface.js"
+import { BankAccountLineSchema } from "./BankAccountLine.interfaces.js"
 
 export const BankAccountSchema = z
 	.object({

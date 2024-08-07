@@ -1,7 +1,7 @@
 import { z } from "zod"
-import { TicketCategorySchema } from "./TicketCategory.interface.js"
-import { TicketSeveritySchema } from "./TicketSeverity.interface.js"
-import { TicketTypeSchema } from "./TicketType.interface.js"
+import { TicketCategorySchema } from "./TicketCategory.interfaces.js"
+import { TicketSeveritySchema } from "./TicketSeverity.interfaces.js"
+import { TicketTypeSchema } from "./TicketType.interfaces.js"
 
 export const TicketSchema = z
 	.object({
