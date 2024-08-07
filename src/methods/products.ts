@@ -358,8 +358,8 @@ export function products(this: DolibarrApi) {
 	 * @param	string	data.value	Value of Attribute value
 	 * @return	Promise<number>
 	 */
-	const addAttributeValue = (id: number, data: { ref: string; value: string }, init?: RequestInit) =>
-		this.post<number>(`products/attributes/${id}/values`, data, init)
+	const addAttributeValue = (id: number, ref: string, value: string, init?: RequestInit) =>
+		this.post<number>(`products/attributes/${id}/values`, { ref, value }, init)
 
 	/**
 	 * Delete attribute value by ref.
@@ -425,8 +425,8 @@ export function products(this: DolibarrApi) {
 	 * @param	array	data.request_data	Datas
 	 * @return	Promise<ProductAttributeValue>
 	 */
-	const updateAttributeValue = (id: number, data: { request_data: string[] }, init?: RequestInit) =>
-		this.update<ProductAttributeValue>(`products/attributes/values/${id}`, data, init)
+	const updateAttributeValue = (id: number, request_data: string[], init?: RequestInit) =>
+		this.update<ProductAttributeValue>(`products/attributes/values/${id}`, { request_data }, init)
 
 	/**
 	 * Get properties of a product object by barcode

@@ -1,6 +1,6 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import type { BankAccount } from "../interfaces/BankAccount.interface.js"
-import type { BankAccountLine } from "../interfaces/BankAccountLine.interface.js"
+import type { BankAccount } from "../interfaces/BankAccount.interfaces.js"
+import type { BankAccountLine } from "../interfaces/BankAccountLine.interfaces.js"
 
 export function bankaccounts(this: DolibarrApi) {
 	/**
@@ -11,9 +11,9 @@ export function bankaccounts(this: DolibarrApi) {
 	 * @param	number	parameters.page			Page number
 	 * @param	number	parameters.category		Use this param to filter list by category
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.import_key:<:'20160101')"
-	 * @return	Promise<Event[]>				List of account objects
+	 * @return	Promise<BankAccount[]>				List of account objects
 	 */
-	const list = this.commonList<BankAccountListParameters, Event>("bankaccounts")
+	const list = this.commonList<BankAccountListParameters, BankAccount>("bankaccounts")
 
 	/**
 	 * Create account object
@@ -32,17 +32,17 @@ export function bankaccounts(this: DolibarrApi) {
 	/**
 	 * Get account by ID.
 	 * @param	number	id		ID of account
-	 * @return	Promise<Event>	Account	object
+	 * @return	Promise<BankAccount>	Account	object
 	 */
-	const getById = this.commonGetById<{}, Event>("bankaccounts")
+	const getById = this.commonGetById<{}, BankAccount>("bankaccounts")
 
 	/**
 	 * Update account
 	 * @param	number			id				ID of account
-	 * @param	Partial<Event>	request_data	data
+	 * @param	Partial<BankAccount>	request_data	data
 	 * @return	Promise<number>
 	 */
-	const update = this.commonUpdate<Event>("bankaccounts")
+	const update = this.commonUpdate<BankAccount>("bankaccounts")
 
 	/**
 	 * Get the list of lines of the account.

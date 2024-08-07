@@ -18,7 +18,7 @@ describe("Dolibarr Invoices", () => {
 	})
 
 	it("should create an invoice", async () => {
-		const response = await api.invoices.create({ ref: "test" })
+		const response = await api.invoices.create({ partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -33,7 +33,7 @@ describe("Dolibarr Invoices", () => {
 	})
 
 	it("should update an invoice", async () => {
-		const response = await api.invoices.update(1, { ref: "test" })
+		const response = await api.invoices.update(1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -67,7 +67,7 @@ describe("Dolibarr Invoices", () => {
 	})
 
 	it("should add a line to an invoice", async () => {
-		const response = await api.invoices.addLine(1, { label: "test" })
+		const response = await api.invoices.addLine(1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -77,7 +77,7 @@ describe("Dolibarr Invoices", () => {
 	})
 
 	it("should update a line from an invoice", async () => {
-		const response = await api.invoices.updateLine(1, 1, { label: "test" })
+		const response = await api.invoices.updateLine(1, 1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 

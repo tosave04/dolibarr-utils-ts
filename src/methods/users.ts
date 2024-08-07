@@ -1,5 +1,5 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import type { Group } from "../interfaces/Group.interface.js"
+import type { Group } from "../interfaces/Group.interfaces.js"
 import type { User } from "../interfaces/User.interfaces.js"
 
 export function users(this: DolibarrApi) {

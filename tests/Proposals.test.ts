@@ -18,7 +18,7 @@ describe("Dolibarr Proposals", () => {
 	})
 
 	it("should call proposals create method and return data", async () => {
-		const response = await api.proposals.create({ data: "test" })
+		const response = await api.proposals.create({ partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -33,7 +33,7 @@ describe("Dolibarr Proposals", () => {
 	})
 
 	it("should call proposals update method and return data", async () => {
-		const response = await api.proposals.update(1, { data: "test" })
+		const response = await api.proposals.update(1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -58,12 +58,12 @@ describe("Dolibarr Proposals", () => {
 	})
 
 	it("should call proposals addLine method and return data", async () => {
-		const response = await api.proposals.addLine(1, { data: "test" })
+		const response = await api.proposals.addLine(1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
 	it("should call proposals addLines method and return data", async () => {
-		const response = await api.proposals.addLines(1, [{ data: "test" }])
+		const response = await api.proposals.addLines(1, [{ partialData: "test" }])
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -73,7 +73,7 @@ describe("Dolibarr Proposals", () => {
 	})
 
 	it("should call proposals updateLine method and return data", async () => {
-		const response = await api.proposals.updateLine(1, 1, { data: "test" })
+		const response = await api.proposals.updateLine(1, 1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 

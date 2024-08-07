@@ -1,12 +1,12 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import type { BankAccount } from "../interfaces/BankAccount.interface.js"
-import type { CustomerCategory } from "../interfaces/CustomerCategory.interface.js"
-import type { Gateway } from "../interfaces/Gateway.interface.js"
+import type { BankAccount } from "../interfaces/BankAccount.interfaces.js"
+import type { CustomerCategory } from "../interfaces/CustomerCategory.interfaces.js"
+import type { Gateway } from "../interfaces/Gateway.interfaces.js"
 import type { Invoice } from "../interfaces/Invoice.interfaces.js"
 import type { Order } from "../interfaces/Order.interfaces.js"
 import type { Proposal } from "../interfaces/Proposal.interfaces.js"
-import type { Representative } from "../interfaces/Representative.interface.js"
-import type { SupplierCategory } from "../interfaces/SupplierCategory.interface.js"
+import type { Representative } from "../interfaces/Representative.interfaces.js"
+import type { SupplierCategory } from "../interfaces/SupplierCategory.interfaces.js"
 import type { Thirdparty } from "../interfaces/Thirdparty.interfaces.js"
 
 export function thirdparties(this: DolibarrApi) {
@@ -292,8 +292,8 @@ export function thirdparties(this: DolibarrApi) {
 	 * @param	number		priceLevel		Price level to apply to thirdparty
 	 * @return	Promise<Thirdparty>			Thirdparty data without useless information
 	 */
-	const setPriceLevel = (id: number, data: { priceLevel: number }, init?: RequestInit) =>
-		this.put<Thirdparty>(`thirdparties/${id}/setpricelevel`, data, init)
+	const setPriceLevel = (id: number, priceLevel: number, init?: RequestInit) =>
+		this.put<Thirdparty>(`thirdparties/${id}/setpricelevel`, { priceLevel }, init)
 
 	/**
 	 * Get supplier categories for a thirdparty

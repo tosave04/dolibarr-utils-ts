@@ -1,5 +1,5 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import type { Warehouse } from "../interfaces/Warehouse.interface.js"
+import type { Warehouse } from "../interfaces/Warehouse.interfaces.js"
 
 export function warehouses(this: DolibarrApi) {
 	/**

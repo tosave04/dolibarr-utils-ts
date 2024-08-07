@@ -1,5 +1,5 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import type { StockMovement } from "../interfaces/StockMovement.interface.js"
+import type { StockMovement } from "../interfaces/StockMovement.interfaces.js"
 
 export function stockmovements(this: DolibarrApi) {
 	/**

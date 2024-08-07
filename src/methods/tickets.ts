@@ -1,5 +1,5 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import type { Ticket } from "../interfaces/Ticket.interface.js"
+import type { Ticket } from "../interfaces/Ticket.interfaces.js"
 
 export function tickets(this: DolibarrApi) {
 	/**

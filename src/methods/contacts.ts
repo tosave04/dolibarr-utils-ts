@@ -89,8 +89,8 @@ export function contacts(this: DolibarrApi) {
 	 * @param	string	data.password	Request datas
 	 * @return	Promise<number>			ID of user
 	 */
-	const createUserFromContact = (id: number, data: { login: string; password: string }, init?: RequestInit) =>
-		this.post<unknown>(`contacts/${id}/createUser`, data, init)
+	const createUserFromContact = (id: number, login: string, password: string, init?: RequestInit) =>
+		this.post<unknown>(`contacts/${id}/createUser`, { login, password }, init)
 
 	const getByEmail = this.commonGetByEmail<{ includecount?: number; includeroles?: number }, Contact>("contacts")
 

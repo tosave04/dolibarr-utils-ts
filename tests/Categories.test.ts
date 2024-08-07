@@ -18,7 +18,7 @@ describe("Dolibarr Categories", () => {
 	})
 
 	it("should call categories create method and return data", async () => {
-		const response = await api.categories.create({ data: "test" })
+		const response = await api.categories.create({ partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -33,7 +33,7 @@ describe("Dolibarr Categories", () => {
 	})
 
 	it("should call categories update method and return data", async () => {
-		const response = await api.categories.update(1, { data: "test" })
+		const response = await api.categories.update(1, { partialData: "test" })
 		expect(response).toEqual({ data: "test" })
 	})
 

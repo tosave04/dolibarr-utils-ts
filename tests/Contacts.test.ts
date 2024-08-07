@@ -18,7 +18,7 @@ describe("Dolibarr Contacts", () => {
 	})
 
 	it("should create a contact", async () => {
-		const response = await api.contacts.create({ name: "John Doe" })
+		const response = await api.contacts.create({ partialData: "John Doe" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -33,7 +33,7 @@ describe("Dolibarr Contacts", () => {
 	})
 
 	it("should update a contact", async () => {
-		const response = await api.contacts.update(1, { name: "Jane Doe" })
+		const response = await api.contacts.update(1, { partialData: "Jane Doe" })
 		expect(response).toEqual({ data: "test" })
 	})
 
@@ -53,7 +53,7 @@ describe("Dolibarr Contacts", () => {
 	})
 
 	it("should create a user from a contact", async () => {
-		const response = await api.contacts.createUserFromContact(1, { login: "johndoe", password: "password" })
+		const response = await api.contacts.createUserFromContact(1, "johndoe", "password")
 		expect(response).toEqual({ data: "test" })
 	})
 
