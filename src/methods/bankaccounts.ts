@@ -1,8 +1,8 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { BankAccount } from "../interfaces/BankAccount.interface"
-import type { BankAccountLine } from "../interfaces/BankAccountLine.interface"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { BankAccount } from "../interfaces/BankAccount.interface.js"
+import type { BankAccountLine } from "../interfaces/BankAccountLine.interface.js"
 
-export function bankaccounts(this: Dolibarr) {
+export function bankaccounts(this: DolibarrApi) {
 	/**
 	 * Get the list of accounts.
 	 * @param	string	parameters.sortfield	Sort field

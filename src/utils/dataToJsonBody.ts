@@ -1,4 +1,4 @@
-import { objectToStringRecord } from "./objectToStringRecord"
+import { objectToStringRecord } from "./objectToStringRecord.js"
 
 export const dataToJsonBody = (data?: Record<string, any> | Record<string, any>[]) => {
 	if (!data) return

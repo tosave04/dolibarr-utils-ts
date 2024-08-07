@@ -1,5 +1,5 @@
-import { ContactsIdsSchema } from "./ContactsIds.interfaces"
-import { LineSchema } from "./Line.interfaces"
+import { ContactsIdsSchema } from "./ContactsIds.interfaces.js"
+import { LineSchema } from "./Line.interfaces.js"
 
 import { z } from "zod"
 

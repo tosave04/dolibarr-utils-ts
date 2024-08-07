@@ -1,9 +1,9 @@
-import { Dolibarr } from "../dolibarr.class"
-import { objectToStringRecord } from "../utils/objectToStringRecord"
-import { dataToJsonBody } from "../utils/dataToJsonBody"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import { objectToStringRecord } from "../utils/objectToStringRecord.js"
+import { dataToJsonBody } from "../utils/dataToJsonBody.js"
 
 export async function get<R>(
-	this: Dolibarr,
+	this: DolibarrApi,
 	input: string,
 	parameters?: Record<string, unknown>,
 	init?: RequestInit
@@ -27,7 +27,7 @@ export async function get<R>(
 }
 
 export async function post<R>(
-	this: Dolibarr,
+	this: DolibarrApi,
 	input: string,
 	data?: Record<string, unknown> | Record<string, unknown>[],
 	init?: RequestInit
@@ -50,7 +50,7 @@ export async function post<R>(
 }
 
 export async function put<R>(
-	this: Dolibarr,
+	this: DolibarrApi,
 	input: string,
 	data: Record<string, unknown>,
 	init?: RequestInit
@@ -73,7 +73,7 @@ export async function put<R>(
 }
 
 export async function patch<R>(
-	this: Dolibarr,
+	this: DolibarrApi,
 	input: string,
 	data?: Record<string, unknown> | Record<string, unknown>[],
 	init?: RequestInit
@@ -96,7 +96,7 @@ export async function patch<R>(
 }
 
 export async function deleteRequest<R>(
-	this: Dolibarr,
+	this: DolibarrApi,
 	input: string,
 	parameters?: Record<string, unknown>,
 	init?: RequestInit

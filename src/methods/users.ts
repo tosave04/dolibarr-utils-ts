@@ -1,8 +1,8 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Group } from "../interfaces/Group.interface"
-import type { User } from "../interfaces/User.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Group } from "../interfaces/Group.interface.js"
+import type { User } from "../interfaces/User.interfaces.js"
 
-export function users(this: Dolibarr) {
+export function users(this: DolibarrApi) {
 	/**
 	 * List Users
 	 * @param	string	parameters.sortfield	Sort field

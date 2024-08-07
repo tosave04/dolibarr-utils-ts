@@ -1,23 +1,23 @@
-import { get, post, put, deleteRequest, patch } from "./methods/_rest"
-import { agendaevents } from "./methods/agendaevents"
-import { bankaccounts } from "./methods/bankaccounts"
-import { categories } from "./methods/categories"
-import { contacts } from "./methods/contacts"
-import { documents } from "./methods/documents"
-import { invoices } from "./methods/invoices"
-import { login } from "./methods/login"
-import { orders } from "./methods/orders"
-import { products } from "./methods/products"
-import { proposals } from "./methods/proposals"
-import { setup } from "./methods/setup"
-import { shipments } from "./methods/shipments"
-import { status } from "./methods/status"
-import { stockmovements } from "./methods/stockmovements"
-import { thirdparties } from "./methods/thirdparties"
-import { tickets } from "./methods/tickets"
-import { users } from "./methods/users"
-import { warehouses } from "./methods/warehouses"
-import type { Line } from "./interfaces/Line.interfaces"
+import { get, post, put, deleteRequest, patch } from "./methods/_rest.js"
+import { agendaevents } from "./methods/agendaevents.js"
+import { bankaccounts } from "./methods/bankaccounts.js"
+import { categories } from "./methods/categories.js"
+import { contacts } from "./methods/contacts.js"
+import { documents } from "./methods/documents.js"
+import { invoices } from "./methods/invoices.js"
+import { login } from "./methods/login.js"
+import { orders } from "./methods/orders.js"
+import { products } from "./methods/products.js"
+import { proposals } from "./methods/proposals.js"
+import { setup } from "./methods/setup.js"
+import { shipments } from "./methods/shipments.js"
+import { status } from "./methods/status.js"
+import { stockmovements } from "./methods/stockmovements.js"
+import { thirdparties } from "./methods/thirdparties.js"
+import { tickets } from "./methods/tickets.js"
+import { users } from "./methods/users.js"
+import { warehouses } from "./methods/warehouses.js"
+import type { Line } from "./interfaces/Line.interfaces.js"
 
 /**
  * Typescript communication tools, zod schemas and utils for Dolibarr REST API
@@ -31,7 +31,7 @@ import type { Line } from "./interfaces/Line.interfaces"
  * api.ping().then(console.log)
  * api.proposals.list({ sortfield: "t.rowid", sortorder: "ASC" })
  */
-export class Dolibarr {
+export class DolibarrApi {
 	protected api_url: string
 	protected api_key: string
 

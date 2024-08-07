@@ -1,7 +1,7 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Category } from "../interfaces/Category.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Category } from "../interfaces/Category.interfaces.js"
 
-export function categories(this: Dolibarr) {
+export function categories(this: DolibarrApi) {
 	/**
 	 * List categories
 	 * @param 	string	parameters.sortfield	Sort field

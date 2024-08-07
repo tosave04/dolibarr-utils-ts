@@ -1,8 +1,8 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Proposal } from "../interfaces/Proposal.interfaces"
-import type { Line } from "../interfaces/Line.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Proposal } from "../interfaces/Proposal.interfaces.js"
+import type { Line } from "../interfaces/Line.interfaces.js"
 
-export function proposals(this: Dolibarr) {
+export function proposals(this: DolibarrApi) {
 	/**
 	 * List commercial proposals
 	 * @param	string			parameters.sortfield		Sort field

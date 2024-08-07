@@ -1,6 +1,6 @@
-import { Dolibarr } from "../dolibarr.class"
+import { DolibarrApi } from "../DolibarrApi.class.js"
 
-export function login(this: Dolibarr) {
+export function login(this: DolibarrApi) {
 	/**
 	 * Login
 	 * Request the API token for a couple username / password.

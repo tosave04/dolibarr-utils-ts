@@ -1,7 +1,7 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Shipment } from "../interfaces/Shipment.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Shipment } from "../interfaces/Shipment.interfaces.js"
 
-export function shipments(this: Dolibarr) {
+export function shipments(this: DolibarrApi) {
 	/**
 	 * List shipments
 	 * @param	string	parameters.sortfield		Sort field

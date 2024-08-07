@@ -1,7 +1,7 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Ticket } from "../interfaces/Ticket.interface"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Ticket } from "../interfaces/Ticket.interface.js"
 
-export function tickets(this: Dolibarr) {
+export function tickets(this: DolibarrApi) {
 	/**
 	 * List tickets
 	 * Get a list of tickets

@@ -1,10 +1,10 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Contact } from "../interfaces/Contact.interfaces"
-import type { Line } from "../interfaces/Line.interfaces"
-import type { Order } from "../interfaces/Order.interfaces"
-import type { Shipment } from "../interfaces/Shipment.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Contact } from "../interfaces/Contact.interfaces.js"
+import type { Line } from "../interfaces/Line.interfaces.js"
+import type { Order } from "../interfaces/Order.interfaces.js"
+import type { Shipment } from "../interfaces/Shipment.interfaces.js"
 
-export function orders(this: Dolibarr) {
+export function orders(this: DolibarrApi) {
 	/**
 	 * List orders
 	 * @param	string	parameters.sortfield		Sort field

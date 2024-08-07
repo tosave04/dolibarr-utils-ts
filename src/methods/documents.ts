@@ -1,8 +1,8 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Document } from "../interfaces/Document.interfaces"
-import type { DocumentContent } from "../interfaces/DocumentContent.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Document } from "../interfaces/Document.interfaces.js"
+import type { DocumentContent } from "../interfaces/DocumentContent.interfaces.js"
 
-export function documents(this: Dolibarr) {
+export function documents(this: DolibarrApi) {
 	/**
 	 * Delete a document.
 	 * @param	string	modulepart		Name of module or area concerned by file download ('product', ...)

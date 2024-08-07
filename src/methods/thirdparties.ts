@@ -1,15 +1,15 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { BankAccount } from "../interfaces/BankAccount.interface"
-import type { CustomerCategory } from "../interfaces/CustomerCategory.interface"
-import type { Gateway } from "../interfaces/Gateway.interface"
-import type { Invoice } from "../interfaces/Invoice.interfaces"
-import type { Order } from "../interfaces/Order.interfaces"
-import type { Proposal } from "../interfaces/Proposal.interfaces"
-import type { Representative } from "../interfaces/Representative.interface"
-import type { SupplierCategory } from "../interfaces/SupplierCategory.interface"
-import type { Thirdparty } from "../interfaces/Thirdparty.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { BankAccount } from "../interfaces/BankAccount.interface.js"
+import type { CustomerCategory } from "../interfaces/CustomerCategory.interface.js"
+import type { Gateway } from "../interfaces/Gateway.interface.js"
+import type { Invoice } from "../interfaces/Invoice.interfaces.js"
+import type { Order } from "../interfaces/Order.interfaces.js"
+import type { Proposal } from "../interfaces/Proposal.interfaces.js"
+import type { Representative } from "../interfaces/Representative.interface.js"
+import type { SupplierCategory } from "../interfaces/SupplierCategory.interface.js"
+import type { Thirdparty } from "../interfaces/Thirdparty.interfaces.js"
 
-export function thirdparties(this: Dolibarr) {
+export function thirdparties(this: DolibarrApi) {
 	/**
 	 * List thirdparties
 	 * @param	string	parameters.sortfield	Sort field

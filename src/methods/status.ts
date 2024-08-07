@@ -1,8 +1,8 @@
-import { Dolibarr } from "../dolibarr.class"
+import { DolibarrApi } from "../DolibarrApi.class.js"
 
-export function status(this: Dolibarr) {
+export function status(this: DolibarrApi) {
 	/**
-	 * Get status of Dolibarr instance
+	 * Get status of DolibarrApi instance
 	 * @return	Promise<{ success: { code: 200; dolibarr_version: string; access_locked: string } }>
 	 */
 	const getStatus = (init?: RequestInit) =>

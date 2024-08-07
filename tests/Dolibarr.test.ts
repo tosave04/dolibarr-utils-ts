@@ -1,19 +1,19 @@
 import fetchMock from "./mocks/fetchMock"
-import { Dolibarr } from "../src/dolibarr.class"
+import { DolibarrApi } from "../src/DolibarrApi.class.js"
 
 global.fetch = fetchMock as jest.Mock
 
 describe("Dolibarr REST", () => {
 	const api_url = "http://dummy.com/api"
 	const api_key = "dummy_key"
-	let api: Dolibarr
+	let api: DolibarrApi
 
 	beforeEach(() => {
-		api = new Dolibarr(api_url, api_key)
+		api = new DolibarrApi(api_url, api_key)
 	})
 
 	it("should throw an error if api_url or api_key is not provided", () => {
-		expect(() => new Dolibarr("", "")).toThrow("api_url and api_key are required")
+		expect(() => new DolibarrApi("", "")).toThrow("api_url and api_key are required")
 	})
 
 	it("should call ping method and return data", async () => {

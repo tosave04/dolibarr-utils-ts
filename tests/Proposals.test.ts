@@ -1,15 +1,15 @@
 import fetchMock from "./mocks/fetchMock"
-import { Dolibarr } from "../src/dolibarr.class"
+import { DolibarrApi } from "../src/DolibarrApi.class.js"
 
 global.fetch = fetchMock as jest.Mock
 
 describe("Dolibarr Proposals", () => {
 	const api_url = "http://dummy.com/api"
 	const api_key = "dummy_key"
-	let api: Dolibarr
+	let api: DolibarrApi
 
 	beforeEach(() => {
-		api = new Dolibarr(api_url, api_key)
+		api = new DolibarrApi(api_url, api_key)
 	})
 
 	it("should call proposals list method and return data", async () => {

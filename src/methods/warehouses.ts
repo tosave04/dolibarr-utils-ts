@@ -1,7 +1,7 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Warehouse } from "../interfaces/Warehouse.interface"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Warehouse } from "../interfaces/Warehouse.interface.js"
 
-export function warehouses(this: Dolibarr) {
+export function warehouses(this: DolibarrApi) {
 	/**
 	 * List warehouses
 	 * @param	string	parameters.sortfield	Sort field

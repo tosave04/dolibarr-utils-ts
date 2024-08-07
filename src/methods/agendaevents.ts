@@ -1,8 +1,8 @@
-import { Dolibarr } from "../dolibarr.class"
+import { DolibarrApi } from "../DolibarrApi.class.js"
 
 type Event = Record<string, unknown>
 
-export function agendaevents(this: Dolibarr) {
+export function agendaevents(this: DolibarrApi) {
 	/**
 	 * List Agenda Events
 	 * @param	string	sortfield	Sort field

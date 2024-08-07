@@ -1,9 +1,9 @@
 import { z } from "zod"
 
-import { ContactSchema } from "./Contact.interfaces"
-import { InvoiceSchema } from "./Invoice.interfaces"
-import { ShipmentSchema } from "./Shipment.interfaces"
-import { ThirdpartySchema } from "./Thirdparty.interfaces"
+import { ContactSchema } from "./Contact.interfaces.js"
+import { InvoiceSchema } from "./Invoice.interfaces.js"
+import { ShipmentSchema } from "./Shipment.interfaces.js"
+import { ThirdpartySchema } from "./Thirdparty.interfaces.js"
 
 export const SavTosaveSchema = z
 	.object({

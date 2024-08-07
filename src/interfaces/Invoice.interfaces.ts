@@ -1,6 +1,6 @@
-import { LineSchema } from "./Line.interfaces"
-import { ContactsIdsSchema } from "./ContactsIds.interfaces"
-import { LinkedObjectsIdsSchema } from "./LinkedObjectsIds.interfaces"
+import { LineSchema } from "./Line.interfaces.js"
+import { ContactsIdsSchema } from "./ContactsIds.interfaces.js"
+import { LinkedObjectsIdsSchema } from "./LinkedObjectsIds.interfaces.js"
 
 import { z } from "zod"
 

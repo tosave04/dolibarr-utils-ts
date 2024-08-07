@@ -1,33 +1,33 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { BusinessLegalForm } from "../interfaces/BusinessLegalForm.interface"
-import type { Civility } from "../interfaces/Civility.interface"
-import type { Company } from "../interfaces/Company.interfaces"
-import type { ContactType } from "../interfaces/ContactType.interface"
-import type { Country } from "../interfaces/Country.interfaces"
-import type { Currency } from "../interfaces/Currency.interface"
-import type { DeliveryTime } from "../interfaces/DeliveryTime.interface"
-import type { Establishment } from "../interfaces/Establishment.interface"
-import type { EventType } from "../interfaces/EventType.interface"
-import type { ExpenseReportType } from "../interfaces/ExpenseReportType.interface"
-import type { ExtraField } from "../interfaces/ExtraField.interface"
-import type { MeasuringUnit } from "../interfaces/MeasuringUnit.interface"
-import type { OrderingMethod } from "../interfaces/OrderingMethod.interface"
-import type { OrderingOrigin } from "../interfaces/OrderingOrigin.interface"
-import type { PaymentTerm } from "../interfaces/PaymentTerm.interface"
-import type { PaymentType } from "../interfaces/PaymentType.interface"
-import type { ShippingMethod } from "../interfaces/ShippingMethod.interface"
-import type { SocialNetwork } from "../interfaces/SocialNetwork.interface"
-import type { Staff } from "../interfaces/Staff.interface"
-import type { StateProvince } from "../interfaces/StateProvince.interface"
-import type { TicketCategory } from "../interfaces/TicketCategory.interface"
-import type { TicketSeverity } from "../interfaces/TicketSeverity.interface"
-import type { TicketType } from "../interfaces/TicketType.interface"
-import type { Town } from "../interfaces/Town.interface"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { BusinessLegalForm } from "../interfaces/BusinessLegalForm.interface.js"
+import type { Civility } from "../interfaces/Civility.interface.js"
+import type { Company } from "../interfaces/Company.interfaces.js"
+import type { ContactType } from "../interfaces/ContactType.interface.js"
+import type { Country } from "../interfaces/Country.interfaces.js"
+import type { Currency } from "../interfaces/Currency.interface.js"
+import type { DeliveryTime } from "../interfaces/DeliveryTime.interface.js"
+import type { Establishment } from "../interfaces/Establishment.interface.js"
+import type { EventType } from "../interfaces/EventType.interface.js"
+import type { ExpenseReportType } from "../interfaces/ExpenseReportType.interface.js"
+import type { ExtraField } from "../interfaces/ExtraField.interface.js"
+import type { MeasuringUnit } from "../interfaces/MeasuringUnit.interface.js"
+import type { OrderingMethod } from "../interfaces/OrderingMethod.interface.js"
+import type { OrderingOrigin } from "../interfaces/OrderingOrigin.interface.js"
+import type { PaymentTerm } from "../interfaces/PaymentTerm.interface.js"
+import type { PaymentType } from "../interfaces/PaymentType.interface.js"
+import type { ShippingMethod } from "../interfaces/ShippingMethod.interface.js"
+import type { SocialNetwork } from "../interfaces/SocialNetwork.interface.js"
+import type { Staff } from "../interfaces/Staff.interface.js"
+import type { StateProvince } from "../interfaces/StateProvince.interface.js"
+import type { TicketCategory } from "../interfaces/TicketCategory.interface.js"
+import type { TicketSeverity } from "../interfaces/TicketSeverity.interface.js"
+import type { TicketType } from "../interfaces/TicketType.interface.js"
+import type { Town } from "../interfaces/Town.interface.js"
 
-export function setup(this: Dolibarr) {
+export function setup(this: DolibarrApi) {
 	/**
 	 * Do a test of integrity for files and setup.
-	 * @param	string	target	Can be 'local' or 'default' or Url of the signatures file to use for the test. Must be reachable by the tested Dolibarr.
+	 * @param	string	target	Can be 'local' or 'default' or Url of the signatures file to use for the test. Must be reachable by the tested DolibarrApi.
 	 * @return	Promise<{ resultcode: string; resultcomment: string; expectedchecksum: string; currentchecksum: string; out: string }>	Result of file and setup integrity check
 	 */
 	const checkIntegrity = (target: "local" | "default" | string, init?: RequestInit) =>
@@ -104,7 +104,7 @@ export function setup(this: Dolibarr) {
 	 * Get the list of countries.
 	 * The names of the countries will be translated to the given language if
 	 * the $lang parameter is provided. The value of $lang must be a language
-	 * code supported by Dolibarr, for example 'en_US' or 'fr_FR'.
+	 * code supported by DolibarrApi, for example 'en_US' or 'fr_FR'.
 	 * The returned list is sorted by country ID.
 	 * @param	string	parameters.sortfield	Sort field
 	 * @param	string	parameters.sortorder	Sort order
@@ -300,7 +300,7 @@ export function setup(this: Dolibarr) {
 	 * Get the list of states/provinces.
 	 * The names of the states will be translated to the given language if
 	 * the $lang parameter is provided. The value of $lang must be a language
-	 * code supported by Dolibarr, for example 'en_US' or 'fr_FR'.
+	 * code supported by DolibarrApi, for example 'en_US' or 'fr_FR'.
 	 * The returned list is sorted by state ID.
 	 * @param	string	parameters.sortfield	Sort field
 	 * @param	string	parameters.sortorder	Sort order

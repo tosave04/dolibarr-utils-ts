@@ -1,4 +1,4 @@
-import { ShipmentLineSchema } from "./ShipmentLine.interfaces"
+import { ShipmentLineSchema } from "./ShipmentLine.interfaces.js"
 
 import { z } from "zod"
 

@@ -1,6 +1,6 @@
 import { z } from "zod"
-import { LineSchema } from "./Line.interfaces"
-import { ContactsIdsSchema } from "./ContactsIds.interfaces"
+import { LineSchema } from "./Line.interfaces.js"
+import { ContactsIdsSchema } from "./ContactsIds.interfaces.js"
 
 export const OrderSchema = z
 	.object({

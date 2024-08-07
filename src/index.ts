@@ -1,7 +1,16 @@
-import { Dolibarr } from "./dolibarr.class"
+import { DolibarrApi } from "./DolibarrApi.class.js"
 
-const api = new Dolibarr("http://localhost:8080/api/index.php", "dolibarr_api_key")
+const index = async () => {
+	console.log("Début de l'appel, une erreur est attendue car l'URL est volontairement incorrecte")
 
-api.get("ping").then(console.log)
+	const api = new DolibarrApi("http://localhost:8080/api/index.php", "dolibarr_api_key")
 
-api.proposals.list().then(console.log)
+	api
+		.get("ping")
+		.then((response) => {
+			console.log(response)
+		})
+		.catch((error) => console.error("Error in ping", error instanceof Error ? error.message : JSON.stringify(error)))
+}
+
+index()

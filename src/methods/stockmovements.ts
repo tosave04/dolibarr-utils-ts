@@ -1,7 +1,7 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { StockMovement } from "../interfaces/StockMovement.interface"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { StockMovement } from "../interfaces/StockMovement.interface.js"
 
-export function stockmovements(this: Dolibarr) {
+export function stockmovements(this: DolibarrApi) {
 	/**
 	 * Get a list of stock movement
 	 * @param	string	parameters.sortfield	Sort field

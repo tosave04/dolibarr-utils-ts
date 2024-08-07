@@ -1,6 +1,6 @@
-import { Dolibarr } from "../dolibarr.class"
-import type { Category } from "../interfaces/Category.interfaces"
-import type { Product } from "../interfaces/Product.interfaces"
+import { DolibarrApi } from "../DolibarrApi.class.js"
+import type { Category } from "../interfaces/Category.interfaces.js"
+import type { Product } from "../interfaces/Product.interfaces.js"
 
 // TODO: Add missing parameters
 type ProductSupplier = Record<string, unknown>
@@ -20,7 +20,7 @@ type ProductAttributeValue = Record<string, unknown>
 // TODO: Add missing parameters
 type ProductPropertie = Record<string, unknown>
 
-export function products(this: Dolibarr) {
+export function products(this: DolibarrApi) {
 	/**
 	 * List products
 	 * @param	string	parameters.sortfield		Sort field
