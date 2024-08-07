@@ -1,16 +1,10 @@
 {
   "name": "dolibarr-utils-ts",
-  "version": "0.2.0",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.0.0",
   "description": "Typescript communication tools, zod schemas and utils for Dolibarr REST API",
-  "scripts": {
-    "test": "jest",
-    "build": "npx tsc",
-    "clean": "rm -rf dist",
-    "index": "node dist/index.js"
-  },
+  "author": "Thomas Savournin <tosave.vbl@gmail.com>",
+  "license": "GPL-3.0",
   "keywords": [
     "dolibarr",
     "typescript",
@@ -20,16 +14,45 @@
     "interface",
     "zod"
   ],
-  "author": "Thomas Savournin <tosave.vbl@gmail.com>",
-  "license": "GPL-3.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest",
+    "test-dist": "node dist/test.js"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^22.0.2",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.4",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
   "dependencies": {
     "zod": "^3.23.8"
+  },
+  "peerDependencies": {
+    "zod": ">= 3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tosave04/dolibarr-utils-ts"
   }
 }

@@ -4,7 +4,7 @@ module.exports = {
 	 * The default-esm preset is designed to work with ECMAScript Modules (ES Modules).
 	 * It automatically configures Jest and ts-jest to treat TypeScript files as ES modules.
 	 */
-	preset: "ts-jest/presets/default-esm",
+	preset: "ts-jest",
 
 	/**
 	 * This option sets the test environment to use.
@@ -27,10 +27,9 @@ module.exports = {
 	extensionsToTreatAsEsm: [".ts"],
 
 	/**
-	 * This section allows you to pass specific configurations to ts-jest.
-	 * The useESM: true option tells ts-jest to use ES modules for TypeScript files.
-	 * This may be necessary if you have compatibility issues with ES modules.
+	 * This option configures the mapping of module names.
+	 * It tells Jest to map imports ending in .js to their equivalents without the .js extension.
+	 * For example, an import like import { Dolibarr } from './dolibarr.class.js'; will be mapped to import { Dolibarr } from './dolibarr.class';.
 	 */
-	globals: { "ts-jest": { useESM: true } },
 	moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
 }
