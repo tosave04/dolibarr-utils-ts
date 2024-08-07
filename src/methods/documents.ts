@@ -77,7 +77,7 @@ export function documents(this: DolibarrApi) {
 			filecontent?: string
 			fileencoding?: string
 			overwriteifexists?: number
-			createdirifnotexists?: string
+			createdirifnotexists?: number
 		},
 		init?: RequestInit
 	) => this.post<string>(`documents/upload`, { ...data, filename, modulepart }, init)
