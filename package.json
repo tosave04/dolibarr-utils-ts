@@ -1,7 +1,7 @@
 {
-  "name": "dolibarr-utils-ts",
+  "name": "@tosave04/dolibarr-utils-ts",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript communication tools, zod schemas and utils for Dolibarr REST API",
   "author": "Thomas Savournin <tosave.vbl@gmail.com>",
   "license": "GPL-3.0",
@@ -30,7 +30,9 @@
   "scripts": {
     "build": "tsup",
     "test": "jest",
-    "test-dist": "node dist/test.js"
+    "test-dist": "node dist/test.js",
+    "login": "npm login",
+    "publish": "npm publish --access public"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

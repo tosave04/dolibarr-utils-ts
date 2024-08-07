@@ -2,7 +2,7 @@ import { defineConfig } from "tsup"
 
 export default defineConfig({
 	entry: {
-		main: "src/index.ts",
+		index: "src/index.ts",
 		test: "src/test.ts",
 	},
 	outDir: "dist",
