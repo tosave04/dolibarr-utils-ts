@@ -1,8 +1,9 @@
 /**
  * Converts an array of filter objects into a MySQL WHERE clause string.
  *
- * @param	{Filter[]}	filters	    The list of filters to convert.
- * @returns	{string}			    The resulting SQL WHERE clause string.
+ * @param	{Filter[]}		filters			The list of filters to convert.
+ * @param	{"and" | "or"}	[join="and"]	The logical operator to use to join the filters.
+ * @returns	{string}						The resulting SQL WHERE clause string.
  * 
  * @example
 const filters: SQLFilterObject[] = [

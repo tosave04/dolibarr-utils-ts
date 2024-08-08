@@ -6,7 +6,7 @@ export default defineConfig({
 		test: "src/test.ts",
 	},
 	outDir: "dist",
-	format: ["esm"], // esm (ECMAScript Module): Uses modern ECMAScript module syntax (import and export), cjs (CommonJS): Uses CommonJS module syntax (require and module.exports).
+	format: ["cjs", "esm"], // esm (ECMAScript Module): Uses modern ECMAScript module syntax (import and export), cjs (CommonJS): Uses CommonJS module syntax (require and module.exports).
 	target: "es6",
 	sourcemap: true,
 	minify: true,
