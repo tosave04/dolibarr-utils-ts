@@ -159,10 +159,29 @@ Each module includes methods for listing, creating, updating, and deleting resou
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue on GitHub.
 
+### Tricks
+
+- Regex to help format comments :
+
+```bash
+find: @(param|return)\s*([\w|<>]+)\s*(\$(\w*))?\s*
+replace: @$1\t$2\t\t$4\t\t
+```
+
+- Added method: clone `_template.ts` file.
+
+- Added interface: clone `_template.interfaces.ts` file and add the export in `interfaces/index.ts`.
+
+- Added test: clone `tests/template.ts` file and replace `.ts` by `.test.ts`.
+
+- Build `dist` folder :
+
+```bash
+yarn test # To check the cohesion of the methods
+yarn build # tsup compilation of the dist folder
+yarn test-dist # Run the `test.js` file created in the dist folder
+```
+
 ## License
 
 This project is licensed under the GPL-3.0 License.
-
----
-
-Feel free to adjust the README file to better match the specifics of your package and any additional information you want to provide.

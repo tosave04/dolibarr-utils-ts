@@ -1,9 +1,9 @@
 import { DolibarrApi } from "./index.js"
 
 export const test = async () => {
-	console.log("Début de l'appel, une erreur est attendue car l'URL est volontairement incorrecte")
+	console.log("Starting call, an error is expected because the URL is intentionally incorrect :")
 
-	const api = new DolibarrApi("http://localhost:8080/api/index.php", "dolibarr_api_key")
+	const api = new DolibarrApi("dolibarr_api_url", "dolibarr_api_key")
 
 	api
 		.get("ping")

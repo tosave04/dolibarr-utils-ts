@@ -1,3 +1,4 @@
+// Exporting Dolibarr methods
 export * from "./BankAccount.interfaces"
 export * from "./BankAccountLine.interfaces"
 export * from "./BusinessLegalForm.interfaces"
@@ -32,7 +33,6 @@ export * from "./Pdf.interfaces"
 export * from "./Product.interfaces"
 export * from "./Proposal.interfaces"
 export * from "./Representative.interfaces"
-export * from "./SavTosave.interfaces"
 export * from "./Shipment.interfaces"
 export * from "./ShipmentLine.interfaces"
 export * from "./ShippingMethod.interfaces"
@@ -49,3 +49,7 @@ export * from "./TicketType.interfaces"
 export * from "./Town.interfaces"
 export * from "./User.interfaces"
 export * from "./Warehouse.interfaces"
+
+// Exporting external module methods
+export * from "./external/SavTosave.interfaces"
+export * from "./external/DashboardTosave.interfaces"

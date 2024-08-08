@@ -17,6 +17,7 @@ import { thirdparties } from "./methods/thirdparties.js"
 import { tickets } from "./methods/tickets.js"
 import { users } from "./methods/users.js"
 import { warehouses } from "./methods/warehouses.js"
+import { savtosave } from "./methods/external/savtosave.js"
 import type { Line } from "./interfaces/Line.interfaces.js"
 
 /**
@@ -222,6 +223,10 @@ export class DolibarrApi {
 	users = users.call(this)
 
 	warehouses = warehouses.call(this)
+
+	/** External modules */
+
+	savtosave = savtosave.call(this)
 
 	// object = object.call<this, [], ReturnType<typeof object>>(this)
 	// object = object.call(this)

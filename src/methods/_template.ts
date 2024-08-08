@@ -1,5 +1,5 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
 
-export function XXXXXX(this: DolibarrApi) {
+export function __NAME__(this: DolibarrApi) {
 	return {}
 }
