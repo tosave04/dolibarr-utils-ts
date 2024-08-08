@@ -1,6 +1,6 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-import { objectToStringRecord } from "../utils/objectToStringRecord.js"
-import { dataToJsonBody } from "../utils/dataToJsonBody.js"
+import { objectToStringRecord } from "../utils/miscellaneous/objectToStringRecord.js"
+import { dataToJsonBody } from "../utils/miscellaneous/dataToJsonBody.js"
 
 export async function get<R>(
 	this: DolibarrApi,
