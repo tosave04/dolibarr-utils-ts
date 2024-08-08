@@ -1,5 +1,5 @@
-import fetchMock from "./mocks/fetchMock"
-import { DolibarrApi } from "../src/DolibarrApi.class.js"
+import fetchMock from ".././mocks/fetchMock"
+import { DolibarrApi } from "../../src/DolibarrApi.class.js"
 
 global.fetch = fetchMock as jest.Mock
 
