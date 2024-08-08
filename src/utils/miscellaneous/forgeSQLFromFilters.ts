@@ -14,9 +14,9 @@ const sqlfilters = forgeSQLFilters(filters);
 console.log(sqlfilters);
 // Output: "(t.ref:like:'SO-%') and (t.date_creation:<:'20240831') and (t.status:in:('1','2','3'))"
  */
-export const forgeSQLFilters = (filters: SQLFilterObject[]): string => {
+export const forgeSQLFilters = (filters: SQLFilterObject[], join: "and" | "or" = "and"): string => {
 	return filters
-		.map(({ key, operator, value }) => {
+		.map(({ field, operator, value }) => {
 			let sqlValue: string
 
 			if (value === null) {
@@ -36,13 +36,13 @@ export const forgeSQLFilters = (filters: SQLFilterObject[]): string => {
 			if (operator === "!=") normalizedOperator = "<>"
 			if (operator === "not in") normalizedOperator = "notin"
 
-			return `(${key}:${normalizedOperator}:${sqlValue})`
+			return `(${field}:${normalizedOperator}:${sqlValue})`
 		})
-		.join(" and ")
+		.join(` ${join} `)
 }
 
 export interface SQLFilterObject {
-	key: string
+	field: string
 	operator: "=" | "<" | ">" | "<=" | ">=" | "!=" | "in" | "not in" | "like" | "not like" | "is" | "is not"
 	value: string | number | boolean | null | (string | number | boolean)[]
 }
