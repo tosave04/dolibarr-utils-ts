@@ -47,7 +47,7 @@ export class DolibarrApi {
 		this.api_key = api_key
 	}
 
-	/** REST methods */
+	// REST methods
 
 	get = <R>(input: string, parameters?: Record<string, unknown>, init?: RequestInit) =>
 		get.call<this, [string, Record<string, unknown> | undefined, RequestInit | undefined], Promise<R>>(
@@ -74,7 +74,7 @@ export class DolibarrApi {
 			Promise<R>
 		>(this, input, data, init)
 
-	/** CRUD methods */
+	// CRUD methods
 
 	create = this.post
 
@@ -90,7 +90,7 @@ export class DolibarrApi {
 			init
 		)
 
-	/** Common methods */
+	// Common methods
 
 	commonList =
 		<P extends {}, R>(module: string) =>
@@ -174,7 +174,7 @@ export class DolibarrApi {
 		(email: string, parameters?: P, init?: RequestInit) =>
 			this.get<R>(`${module}/email/${email}`, parameters, init)
 
-	/** Example structure to create the methods */
+	// Example structure to create the methods
 	// <unknown> is the return type to complete
 
 	commonGetDummy = (PROPS: any, parameters?: {}, init?: RequestInit) => this.get<unknown>(`MODULE`, parameters, init)
@@ -186,52 +186,57 @@ export class DolibarrApi {
 	commonDeleteDummy = (PROPS: any, parameters?: {}, init?: RequestInit) =>
 		this.delete<{ success: { code: number; message: string } }>(`MODULE`, parameters, init)
 
-	/** Modules */
+	// Modules
 
-	agendaevents = agendaevents.call(this)
+	agendaevents: ReturnType<typeof agendaevents> = agendaevents.call(this)
 
-	bankaccounts = bankaccounts.call(this)
+	bankaccounts: ReturnType<typeof bankaccounts> = bankaccounts.call(this)
 
-	categories = categories.call(this)
+	categories: ReturnType<typeof categories> = categories.call(this)
 
-	contacts = contacts.call(this)
+	contacts: ReturnType<typeof contacts> = contacts.call(this)
 
-	documents = documents.call(this)
+	documents: ReturnType<typeof documents> = documents.call(this)
 
-	invoices = invoices.call(this)
+	invoices: ReturnType<typeof invoices> = invoices.call(this)
 
-	login = login.call(this)
+	login: ReturnType<typeof login> = login.call(this)
 
-	orders = orders.call(this)
+	orders: ReturnType<typeof orders> = orders.call(this)
 
-	products = products.call(this)
+	products: ReturnType<typeof products> = products.call(this)
 
-	proposals = proposals.call(this)
+	proposals: ReturnType<typeof proposals> = proposals.call(this)
 
-	setup = setup.call(this)
+	setup: ReturnType<typeof setup> = setup.call(this)
 
-	shipments = shipments.call(this)
+	shipments: ReturnType<typeof shipments> = shipments.call(this)
 
-	status = status.call(this)
+	status: ReturnType<typeof status> = status.call(this)
 
-	stockmovements = stockmovements.call(this)
+	stockmovements: ReturnType<typeof stockmovements> = stockmovements.call(this)
 
-	thirdparties = thirdparties.call(this)
+	thirdparties: ReturnType<typeof thirdparties> = thirdparties.call(this)
 
-	tickets = tickets.call(this)
+	tickets: ReturnType<typeof tickets> = tickets.call(this)
 
-	users = users.call(this)
+	users: ReturnType<typeof users> = users.call(this)
 
-	warehouses = warehouses.call(this)
+	warehouses: ReturnType<typeof warehouses> = warehouses.call(this)
 
-	/** External modules */
+	// External modules
 
-	savtosave = savtosave.call(this)
+	/**
+	 * Provides methods to manage "sav" (after-sales service) objects in Dolibarr.
+	 * Allows for listing, retrieving, updating, and managing sav-related data.
+	 * @returns {object} {list, ping, getById, update, toValidate, pending, updateShippingDate, updateShippingMethod, getAllForDashboard}
+	 */
+	savtosave: ReturnType<typeof savtosave> = savtosave.call(this)
 
 	// object = object.call<this, [], ReturnType<typeof object>>(this)
 	// object = object.call(this)
 
-	/** Ping */
+	// Ping
 
 	ping = (init?: RequestInit) => this.status.getStatus(init)
 }

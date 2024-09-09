@@ -1,6 +1,23 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
 
-export function login(this: DolibarrApi) {
+export function login(this: DolibarrApi): ReturnType<typeof loginTypes> {
+	const get = (login: string, password: string, parameters?: { entity?: string; reset?: 0 | 1 }, init?: RequestInit) =>
+		this.get<{ success: { code: 200; token: string; entity: number; message: string } }>(
+			`login`,
+			{ ...parameters, login, password },
+			init
+		)
+
+	const post = (login: string, password: string, data?: { entity?: string; reset?: 0 | 1 }, init?: RequestInit) =>
+		this.post<unknown>(`login`, { ...data, login, password }, init)
+
+	return {
+		get,
+		post,
+	}
+}
+
+export declare function loginTypes(this: DolibarrApi): {
 	/**
 	 * Login
 	 * Request the API token for a couple username / password.
@@ -13,12 +30,22 @@ export function login(this: DolibarrApi) {
 	 * @param	number	parameters.reset	Reset token (0=get current token, 1=ask a new token and canceled old token. This means access using current existing API token of user will fails: new token will be required for new access)
 	 * @return	Promise<{ success: { code: 200; token: string; entity: number; message: string } }>		Response status and user token
 	 */
-	const get = (login: string, password: string, parameters?: { entity?: string; reset?: 0 | 1 }, init?: RequestInit) =>
-		this.get<{ success: { code: 200; token: string; entity: number; message: string } }>(
-			`login`,
-			{ ...parameters, login, password },
-			init
-		)
+	get: (
+		login: string,
+		password: string,
+		parameters?: {
+			entity?: string
+			reset?: 0 | 1
+		},
+		init?: RequestInit
+	) => Promise<{
+		success: {
+			code: 200
+			token: string
+			entity: number
+			message: string
+		}
+	}>
 
 	/**
 	 * Login
@@ -32,11 +59,13 @@ export function login(this: DolibarrApi) {
 	 * @param	number	data.reset		Reset token (0=get current token, 1=ask a new token and canceled old token. This means access using current existing API token of user will fails: new token will be required for new access)
 	 * @return	Promise<{ success: { code: 200; token: string; entity: number; message: string } }>		Response status and user token
 	 */
-	const post = (login: string, password: string, data?: { entity?: string; reset?: 0 | 1 }, init?: RequestInit) =>
-		this.post<unknown>(`login`, { ...data, login, password }, init)
-
-	return {
-		get,
-		post,
-	}
+	post: (
+		login: string,
+		password: string,
+		data?: {
+			entity?: string
+			reset?: 0 | 1
+		},
+		init?: RequestInit
+	) => Promise<unknown>
 }
