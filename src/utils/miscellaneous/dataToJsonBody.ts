@@ -1,5 +1,7 @@
 import { objectToStringRecord } from "./objectToStringRecord.js"
 
+// TODO: check if this is correct
+
 /**
  * Converts a given data object or array of objects into a JSON string, with each object transformed by objectToStringRecord.
  *

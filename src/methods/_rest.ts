@@ -1,6 +1,6 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
 import { objectToStringRecord } from "../utils/miscellaneous/objectToStringRecord.js"
-import { dataToJsonBody } from "../utils/miscellaneous/dataToJsonBody.js"
+// import { dataToJsonBody } from "../utils/miscellaneous/dataToJsonBody.js"
 
 export async function get<R>(
 	this: DolibarrApi,
@@ -41,7 +41,8 @@ export async function post<R>(
 			"Content-Type": "application/json;charset=utf-8",
 			...init?.headers,
 		},
-		body: init?.body ? init.body : dataToJsonBody(data),
+		body: init?.body ? init.body : JSON.stringify(data),
+		// body: init?.body ? init.body : dataToJsonBody(data), // TODO: check if this is correct
 	})
 	if (!response.ok) {
 		throw new Error(response.statusText)
@@ -64,7 +65,8 @@ export async function put<R>(
 			"Content-Type": "application/json;charset=utf-8",
 			...init?.headers,
 		},
-		body: init?.body ? init.body : dataToJsonBody(data),
+		body: init?.body ? init.body : JSON.stringify(data),
+		// body: init?.body ? init.body : dataToJsonBody(data), // TODO: check if this is correct
 	})
 	if (!response.ok) {
 		throw new Error(response.statusText)
@@ -87,7 +89,8 @@ export async function patch<R>(
 			"Content-Type": "application/json;charset=utf-8",
 			...init?.headers,
 		},
-		body: init?.body ? init.body : dataToJsonBody(data),
+		body: init?.body ? init.body : JSON.stringify(data),
+		// body: init?.body ? init.body : dataToJsonBody(data), // TODO: check if this is correct
 	})
 	if (!response.ok) {
 		throw new Error(response.statusText)
