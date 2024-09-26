@@ -34,7 +34,7 @@ import type { Line } from "./interfaces/Line.interfaces.js"
  */
 export class DolibarrApi {
 	protected api_url: string
-	protected api_key: string
+	protected api_key: string | undefined
 
 	protected endpoint: string = ""
 
