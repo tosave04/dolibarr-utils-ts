@@ -38,7 +38,7 @@ export class DolibarrApi {
 
 	protected endpoint: string = ""
 
-	constructor(api_url: string, api_key: string) {
+	constructor(api_url: string, api_key?: string | undefined) {
 		if (!api_url || !api_key) {
 			throw new Error("api_url and api_key are required")
 		}
