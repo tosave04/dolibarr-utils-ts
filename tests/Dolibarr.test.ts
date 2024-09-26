@@ -12,8 +12,8 @@ describe("Dolibarr REST", () => {
 		api = new DolibarrApi(api_url, api_key)
 	})
 
-	it("should throw an error if api_url or api_key is not provided", () => {
-		expect(() => new DolibarrApi("", "")).toThrow("api_url and api_key are required")
+	it("should throw an error if api_url is not provided", () => {
+		expect(() => new DolibarrApi("", "")).toThrow("api_url are required")
 	})
 
 	it("should call ping method and return data", async () => {
