@@ -10,10 +10,18 @@ export const test = async () => {
 		.then((response) => {
 			console.log(response)
 		})
-		.catch((error) => console.error("Error in ping", error instanceof Error ? error.message : JSON.stringify(error)))
+		.catch((error) =>
+			console.warn(
+				"Error in ping (this is what we want !)",
+				error instanceof Error ? error.message : JSON.stringify(error)
+			)
+		)
 
 	customerResearch({ search: "test" }).catch((error) =>
-		console.error("Error in customerResearch", error instanceof Error ? error.message : JSON.stringify(error))
+		console.warn(
+			"Error in customerResearch (this is what we want !)",
+			error instanceof Error ? error.message : JSON.stringify(error)
+		)
 	)
 }
 
