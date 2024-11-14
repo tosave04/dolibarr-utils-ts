@@ -3,13 +3,13 @@ import type { DashboardTosave } from "../../interfaces/external/DashboardTosave.
 import type { SavTosave } from "../../interfaces/external/SavTosave.interfaces.js"
 
 export function savtosave(this: DolibarrApi): ReturnType<typeof savtosaveTypes> {
-	const list = this.commonList<SavtosaveListParameters, SavTosave>("savtosave")
+	const list = this.commonList<SavtosaveListParameters, SavTosave>("savtosave/savs")
 
 	const ping = (init?: RequestInit) => this.get<boolean>(`savtosave/ping`, undefined, init)
 
-	const getById = this.commonGetById<{}, SavTosave>("savtosave")
+	const getById = this.commonGetById<{}, SavTosave>("savtosave/sav")
 
-	const update = this.commonUpdate<SavTosave>("savtosave")
+	const update = this.commonUpdate<SavTosave>("savtosave/sav")
 
 	const toValidate = (id: number, value: number, author_id: number, init?: RequestInit) =>
 		this.put<number>(`savtosave/sav/${id}/avalider/${value}/${author_id}`, {}, init)
