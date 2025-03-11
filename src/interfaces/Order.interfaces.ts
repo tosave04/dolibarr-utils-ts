@@ -55,7 +55,7 @@ export const OrderSchema = z
 		array_options: z.any(),
 		array_languages: z.any(),
 		contacts_ids: z.array(ContactsIdsSchema),
-		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.null()).or(z.any()),
 		linkedObjectsFullLoaded: z.any(),
 		canvas: z.any(),
 		fk_project: z.any(),

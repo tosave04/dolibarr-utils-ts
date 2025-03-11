@@ -39,7 +39,7 @@ export const ShipmentSchema = z
 		array_languages: z.any(),
 		contacts_ids: z.any(),
 		linked_objects: z.any(),
-		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.null()).or(z.any()),
 		canvas: z.any(),
 		fk_project: z.any(),
 		contact_id: z.any(),

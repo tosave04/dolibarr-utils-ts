@@ -59,7 +59,7 @@ export const ProposalSchema = z
 		array_languages: z.any(),
 		contacts_ids: z.array(ContactsIdsSchema),
 		linked_objects: z.any(),
-		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.null()).or(z.any()),
 		linkedObjectsFullLoaded: z.any(),
 		canvas: z.any(),
 		fk_project: z.any(),
