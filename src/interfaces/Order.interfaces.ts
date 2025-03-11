@@ -1,6 +1,7 @@
 import { z } from "zod"
 import { LineSchema } from "./Line.interfaces.js"
 import { ContactsIdsSchema } from "./ContactsIds.interfaces.js"
+import { LinkedObjectsIdsSchema } from "./LinkedObjectsIds.interfaces.js"
 
 export const OrderSchema = z
 	.object({
@@ -54,7 +55,7 @@ export const OrderSchema = z
 		array_options: z.any(),
 		array_languages: z.any(),
 		contacts_ids: z.array(ContactsIdsSchema),
-		linkedObjectsIds: z.any(),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
 		linkedObjectsFullLoaded: z.any(),
 		canvas: z.any(),
 		fk_project: z.any(),

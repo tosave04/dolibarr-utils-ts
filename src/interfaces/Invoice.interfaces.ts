@@ -74,7 +74,7 @@ export const InvoiceSchema = z
 		array_options: z.any(),
 		array_languages: z.any(),
 		contacts_ids: z.array(ContactsIdsSchema),
-		linkedObjectsIds: z.array(LinkedObjectsIdsSchema),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
 		fk_project: z.any(),
 		contact_id: z.any(),
 		user: z.any(),

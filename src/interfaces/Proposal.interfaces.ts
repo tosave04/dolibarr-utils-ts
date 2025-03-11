@@ -2,6 +2,7 @@ import { ContactsIdsSchema } from "./ContactsIds.interfaces.js"
 import { LineSchema } from "./Line.interfaces.js"
 
 import { z } from "zod"
+import { LinkedObjectsIdsSchema } from "./LinkedObjectsIds.interfaces.js"
 
 export const ProposalSchema = z
 	.object({
@@ -58,7 +59,7 @@ export const ProposalSchema = z
 		array_languages: z.any(),
 		contacts_ids: z.array(ContactsIdsSchema),
 		linked_objects: z.any(),
-		linkedObjectsIds: z.any(),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
 		linkedObjectsFullLoaded: z.any(),
 		canvas: z.any(),
 		fk_project: z.any(),

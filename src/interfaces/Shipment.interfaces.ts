@@ -1,3 +1,4 @@
+import { LinkedObjectsIdsSchema } from "./LinkedObjectsIds.interfaces.js"
 import { ShipmentLineSchema } from "./ShipmentLine.interfaces.js"
 
 import { z } from "zod"
@@ -38,7 +39,7 @@ export const ShipmentSchema = z
 		array_languages: z.any(),
 		contacts_ids: z.any(),
 		linked_objects: z.any(),
-		linkedObjectsIds: z.any(),
+		linkedObjectsIds: LinkedObjectsIdsSchema.or(z.array(z.never())).or(z.null()),
 		canvas: z.any(),
 		fk_project: z.any(),
 		contact_id: z.any(),
