@@ -72,7 +72,7 @@ export function invoices(this: DolibarrApi): ReturnType<typeof invoicesTypes> {
 	const validate = this.commonValidate<Invoice>("invoices")
 
 	const createFromOrder = (orderid: number, init?: RequestInit) =>
-		this.post<number>(`invoices/createfromorder/${orderid}`, undefined, init)
+		this.post<Invoice>(`invoices/createfromorder/${orderid}`, undefined, init)
 
 	const updatePayment = (id: number, num_payment?: string, init?: RequestInit) =>
 		this.put<{ success: { code: 200; message: "Payment updated" } }>(`invoices/payments/${id}`, { num_payment }, init)
@@ -412,9 +412,9 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	/**
 	 * Create an invoice using an existing order.
 	 * @param	number	orderid		Id of the order
-	 * @return	Promise<number>
+	 * @return	Promise<Invoice>	Invoice object
 	 */
-	createFromOrder: (orderid: number, init?: RequestInit) => Promise<number>
+	createFromOrder: (orderid: number, init?: RequestInit) => Promise<Invoice>
 
 	/**
 	 * Update a payment

@@ -49,7 +49,7 @@ export function orders(this: DolibarrApi): ReturnType<typeof ordersTypes> {
 		this.post<Order>(`orders/${id}/validate`, data, init)
 
 	const createFromProposal = (proposalid: number, init?: RequestInit) =>
-		this.post<number>(`orders/createfromproposal/${proposalid}`, undefined, init)
+		this.post<Order>(`orders/createfromproposal/${proposalid}`, undefined, init)
 
 	const getByExtRef = this.commonGetByRefExt<{ contact_list?: 0 | 1 }, Order>("orders")
 
@@ -313,7 +313,7 @@ export declare function ordersTypes(this: DolibarrApi): {
 	 * @param	number	proposalid	Id of the proposal
 	 * @return	Promise<number>
 	 */
-	createFromProposal: (proposalid: number, init?: RequestInit) => Promise<number>
+	createFromProposal: (proposalid: number, init?: RequestInit) => Promise<Order>
 
 	/**
 	 * Get properties of an order object by ref_ext
