@@ -38,7 +38,7 @@ export function invoices(this: DolibarrApi): ReturnType<typeof invoicesTypes> {
 		this.post<Invoice>(`invoices/${id}/markAsCreditAvailable}`, undefined, init)
 
 	const getPayments = (id: number, init?: RequestInit) =>
-		this.get<Record<string, unknown>>(`invoices/${id}/payments`, undefined, init)
+		this.get<Record<string, string>[]>(`invoices/${id}/payments`, undefined, init)
 
 	const addPayment = (
 		id: number,
@@ -310,7 +310,7 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	 * @param	number	id	Id of invoice
 	 * @return	Promise<Payment>
 	 */
-	getPayments: (id: number, init?: RequestInit) => Promise<Record<string, unknown>>
+	getPayments: (id: number, init?: RequestInit) => Promise<Record<string, string>[]>
 
 	/**
 	 * Add payment line to a specific invoice with the remain to pay as amount.
