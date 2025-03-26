@@ -28,6 +28,7 @@ type WarehousesListParameters = {
 	page?: number
 	category?: number
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function warehousesTypes(this: DolibarrApi): {
@@ -39,6 +40,7 @@ export declare function warehousesTypes(this: DolibarrApi): {
 	 * @param	number	parameters.page			Page number
 	 * @param	number	parameters.category		Use this param to filter list by category
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.label:like:'WH-%') and (t.date_creation:<:'20160101')"
+	 * @param	string	parameters.properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Warehouse[]>			Array of warehouse objects
 	 */
 	list: (parameters?: WarehousesListParameters | undefined, init?: RequestInit) => Promise<Warehouse[]>

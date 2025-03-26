@@ -32,6 +32,7 @@ export type StockmovementsListParameters = {
 	limit?: number
 	page?: number
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function stockmovementsTypes(this: DolibarrApi): {
@@ -42,6 +43,7 @@ export declare function stockmovementsTypes(this: DolibarrApi): {
 	 * @param	number	parameters.limit		Limit for list
 	 * @param	number	parameters.page			Page number
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.product_id:=:1) and (t.date_creation:<:'20160101')"
+	 * @param	string	parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<StockMovement[]>		Array of warehouse objects
 	 */
 	list: (parameters?: StockmovementsListParameters | undefined, init?: RequestInit) => Promise<StockMovement[]>

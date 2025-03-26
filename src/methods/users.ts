@@ -65,6 +65,7 @@ export type UsersListParameters = {
 	user_ids?: string
 	category?: number
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function usersTypes(this: DolibarrApi): {
@@ -77,6 +78,7 @@ export declare function usersTypes(this: DolibarrApi): {
 	 * @param	string	parameters.user_ids		User ids filter field. Example: '1' or '1,2,3' {@pattern /^[0-9,]*$/i}
 	 * @param	number	parameters.category		Use this param to filter list by category
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.date_creation:<:'20160101')"
+	 * @param	string	parameters.properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<User[]>					Array of User objects
 	 */
 	list: (parameters?: UsersListParameters | undefined, init?: RequestInit) => Promise<User[]>

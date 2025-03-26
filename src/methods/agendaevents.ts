@@ -29,6 +29,7 @@ export type EventListParameters = {
 	page?: number
 	user_ids?: string
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function agendaeventsTypes(this: DolibarrApi): {
@@ -40,6 +41,7 @@ export declare function agendaeventsTypes(this: DolibarrApi): {
 	 * @param	number	page		Page number
 	 * @param	string	user_ids	User ids filter field (owners of event). Example: '1' or '1,2,3'          {@pattern /^[0-9,]*$/i}
 	 * @param	string	sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.label:like:'%dol%') and (t.datec:<:'20160101')"
+	 * @param	string	properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Event[]>	Array of Agenda Events objects
 	 */
 	list: (parameters?: EventListParameters | undefined, init?: RequestInit) => Promise<Event[]>

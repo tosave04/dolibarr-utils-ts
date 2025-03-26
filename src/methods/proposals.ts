@@ -74,6 +74,7 @@ export type ProposalsListParameters = {
 	page?: number
 	thirdparty_ids?: string
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function proposalsTypes(this: DolibarrApi): {
@@ -85,6 +86,7 @@ export declare function proposalsTypes(this: DolibarrApi): {
 	 * @param	number			parameters.page				Page number
 	 * @param	string			parameters.thirdparty_ids	Thirdparty ids to filter commercial proposals (example '1' or '1,2,3') {@pattern /^[0-9,]*$/i}
 	 * @param	string			parameters.sqlfilters		Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.datec:<:'20160101')"
+	 * @param	string			parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @param	RequestCache	cache						Cache configuration
 	 * @return	Promise<Proposal[]>							List of commercial proposals
 	 */

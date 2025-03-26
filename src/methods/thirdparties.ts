@@ -166,6 +166,7 @@ export type ThirdpartiesListParameters = {
 	mode?: 1 | 2 | 3 | 4
 	category?: number
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function thirdpartiesTypes(this: DolibarrApi): {
@@ -178,6 +179,7 @@ export declare function thirdpartiesTypes(this: DolibarrApi): {
 	 * @param	number	parameters.mode			Set to 1 to show only customers, Set to 2 to show only prospects, Set to 3 to show only those are not customer neither prospect, Set to 4 to show only suppliers
 	 * @param	number	parameters.category		Use this param to filter list by category
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "((t.nom:like:'TheCompany%') or (t.name_alias:like:'TheCompany%')) and (t.datec:<:'20160101')"
+	 * @param	string	parameters.properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Thirdparty[]>			Array of thirdparty objects
 	 */
 	list: (parameters?: ThirdpartiesListParameters | undefined, init?: RequestInit) => Promise<Thirdparty[]>

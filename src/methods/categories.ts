@@ -75,6 +75,7 @@ export type CategoriesListParameters = {
 	page?: number
 	type?: "member" | "customer" | "supplier" | "product" | "contact"
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function categoriesTypes(this: DolibarrApi): {
@@ -86,6 +87,7 @@ export declare function categoriesTypes(this: DolibarrApi): {
 	 * @param 	number	parameters.page			Page number
 	 * @param 	string	parameters.type			Type of category ('member', 'customer', 'supplier', 'product', 'contact')
 	 * @param 	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.date_creation:<:'20160101')"
+	 * @param	string	parameters.properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Category[]>				Array of category objects
 	 */
 	list: (parameters?: CategoriesListParameters | undefined, init?: RequestInit) => Promise<Category[]>

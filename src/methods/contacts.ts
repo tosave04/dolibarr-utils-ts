@@ -54,6 +54,7 @@ export type ContactsListParameters = {
 	sqlfilters?: string
 	includecount?: number
 	includeroles?: number
+	properties?: string
 }
 
 export declare function contactsTypes(this: DolibarrApi): {
@@ -68,6 +69,7 @@ export declare function contactsTypes(this: DolibarrApi): {
 	 * @param	string	parameters.sqlfilters		Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.date_creation:<:'20160101')"
 	 * @param	int		parameters.includecount		Count and return also number of elements the contact is used as a link for
 	 * @param	int		parameters.includeroles		Includes roles of the contact
+	 * @param	string	parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Contact[]>					Array of contact objects
 	 */
 	list: (parameters?: ContactsListParameters | undefined, init?: RequestInit) => Promise<Contact[]>

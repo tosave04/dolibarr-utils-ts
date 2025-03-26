@@ -141,6 +141,7 @@ export type InvoicesListParameters = {
 	thirdparty_ids?: string
 	status?: "draft" | "unpaid" | "paid" | "cancelled"
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function invoicesTypes(this: DolibarrApi): {
@@ -153,6 +154,7 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	 * @param	string	parameters.thirdparty_ids	Thirdparty ids to filter orders of (example '1' or '1,2,3') {@pattern /^[0-9,]*$/i}
 	 * @param	string	parameters.status			Filter by invoice status : draft | unpaid | paid | cancelled
 	 * @param	string	parameters.sqlfilters		Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.date_creation:<:'20160101')"
+	 * @param	string	parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Invoice[]>					Array of invoice objects
 	 */
 	list: (parameters?: InvoicesListParameters | undefined, init?: RequestInit) => Promise<Invoice[]>

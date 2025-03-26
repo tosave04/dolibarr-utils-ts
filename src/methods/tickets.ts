@@ -38,6 +38,7 @@ export type TicketsListParameters = {
 	limit?: number
 	page?: number
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function ticketsTypes(this: DolibarrApi): {
@@ -50,6 +51,7 @@ export declare function ticketsTypes(this: DolibarrApi): {
 	 * @param	number	parameters.limit		Limit for list
 	 * @param	number	parameters.page			Page number
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.date_creation:<:'20160101') and (t.fk_statut:=:1)"
+	 * @param	string	parameters.properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Ticket[]>				Array of ticket objects
 	 */
 	list: (parameters?: TicketsListParameters | undefined, init?: RequestInit) => Promise<Ticket[]>

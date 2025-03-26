@@ -88,6 +88,7 @@ export type OrdersListParameters = {
 	page?: number
 	thirdparty_ids?: string
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function ordersTypes(this: DolibarrApi): {
@@ -99,6 +100,7 @@ export declare function ordersTypes(this: DolibarrApi): {
 	 * @param	number	parameters.page				Page number
 	 * @param	string	parameters.thirdparty_ids	Thirdparty ids to filter orders of (example '1' or '1,2,3') {@pattern /^[0-9,]*$/i}
 	 * @param	string	parameters.sqlfilters		Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.date_creation:<:'20160101')"
+	 * @param	string	parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Order[]>					Array of order objects
 	 */
 	list: (parameters?: OrdersListParameters | undefined, init?: RequestInit) => Promise<Order[]>

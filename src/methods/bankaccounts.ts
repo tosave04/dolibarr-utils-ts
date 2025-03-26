@@ -78,6 +78,7 @@ export type BankAccountListParameters = {
 	page?: number
 	category?: number
 	sqlfilters?: string
+	properties?: string
 }
 
 export declare function bankaccountsTypes(this: DolibarrApi): {
@@ -89,6 +90,7 @@ export declare function bankaccountsTypes(this: DolibarrApi): {
 	 * @param	number	parameters.page			Page number
 	 * @param	number	parameters.category		Use this param to filter list by category
 	 * @param	string	parameters.sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.ref:like:'SO-%') and (t.import_key:<:'20160101')"
+	 * @param	string	parameters.properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<BankAccount[]>				List of account objects
 	 */
 	list: (parameters?: BankAccountListParameters | undefined, init?: RequestInit) => Promise<BankAccount[]>

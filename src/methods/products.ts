@@ -330,6 +330,7 @@ type addPurchasePriceTypes = (
 		desc_fourn?: string
 		barcode?: string
 		fk_barcode_type?: number
+		properties?: string
 	},
 	init?: RequestInit
 ) => Promise<number>
@@ -348,6 +349,7 @@ export declare function productsTypes(this: DolibarrApi): {
 	 * @param	number	parameters.variant_filter	Use this param to filter list (0 = all, 1=products without variants, 2=parent of variants, 3=variants only)
 	 * @param	bool	parameters.pagination_data	If this parameter is set to true the response will include pagination data. Default value is false. Page starts from 0
 	 * @param	number	parameters.includestockdata	Load also information about stock (slower)
+	 * @param	string	parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Product[]>					Array of product objects
 	 */
 	list: (parameters?: InvoicesListParameters | undefined, init?: RequestInit) => Promise<Product[]>
