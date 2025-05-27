@@ -20,7 +20,7 @@ export function proposals(this: DolibarrApi): ReturnType<typeof proposalsTypes> 
 	const linkContact = (
 		id: number,
 		contactid: number,
-		type: "BILLING" | "SHIPPING" | "CUSTOMER",
+		type: "BILLING" | "SHIPPING" | "CUSTOMER" | "SALESREPFOLL",
 		source: "internal" | "external" = "external", // Neccessary for the API, otherwise it will return an error
 		init?: RequestInit
 	) => this.post<number>(`proposals/${id}/contact/${contactid}/${type}/${source}`, undefined, init)
@@ -175,14 +175,14 @@ export declare function proposalsTypes(this: DolibarrApi): {
 	 * Add a contact type of given commercial proposal
 	 * @param	number	id			Id of commercial proposal to update
 	 * @param	number	contactid	Id of contact to add
-	 * @param	string	type		Type of the contact (BILLING, SHIPPING, CUSTOMER)
+	 * @param	string	type		Type of the external contact (BILLING, SHIPPING, CUSTOMER), internal contact (SALESREPFOLL)
 	 * @param	string	source		Source of the contact (internal, external) [default external]
 	 * @return	Promise<number>
 	 */
 	linkContact: (
 		id: number,
 		contactid: number,
-		type: "BILLING" | "SHIPPING" | "CUSTOMER",
+		type: "BILLING" | "SHIPPING" | "CUSTOMER" | "SALESREPFOLL",
 		source?: "internal" | "external",
 		init?: RequestInit
 	) => Promise<number>
