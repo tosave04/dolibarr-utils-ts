@@ -21,7 +21,7 @@ type ProductAttributeValue = Record<string, unknown>
 type ProductPropertie = Record<string, unknown>
 
 export function products(this: DolibarrApi): ReturnType<typeof productsTypes> {
-	const list = this.commonList<InvoicesListParameters, Product>("products")
+	const list = this.commonList<ProductsListParameters, Product>("products")
 
 	const create = this.commonCreate<Product>("products")
 
@@ -291,7 +291,7 @@ export function products(this: DolibarrApi): ReturnType<typeof productsTypes> {
 	}
 }
 
-export type InvoicesListParameters = {
+export type ProductsListParameters = {
 	sortfield?: string
 	sortorder?: "ASC" | "DESC"
 	limit?: number
@@ -303,6 +303,7 @@ export type InvoicesListParameters = {
 	variant_filter?: 0 | 1 | 2 | 3
 	pagination_data?: boolean
 	includestockdata?: number
+	properties?: string
 }
 
 type addPurchasePriceTypes = (
@@ -352,7 +353,7 @@ export declare function productsTypes(this: DolibarrApi): {
 	 * @param	string	parameters.properties		Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
 	 * @return	Promise<Product[]>					Array of product objects
 	 */
-	list: (parameters?: InvoicesListParameters | undefined, init?: RequestInit) => Promise<Product[]>
+	list: (parameters?: ProductsListParameters | undefined, init?: RequestInit) => Promise<Product[]>
 
 	/**
 	 * Create product object
