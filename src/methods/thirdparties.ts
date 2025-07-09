@@ -18,7 +18,8 @@ export function thirdparties(this: DolibarrApi): ReturnType<typeof thirdpartiesT
 
 	const getById = this.commonGetById<{}, Thirdparty>("thirdparties")
 
-	const update = this.commonUpdate<Thirdparty>("thirdparties")
+	const update = (id: number, data: Partial<Thirdparty>, init?: RequestInit) =>
+		this.update<Thirdparty>(`thirdparties/${id}`, data, init)
 
 	const getBankAccount = (id: number, init?: RequestInit) =>
 		this.get<BankAccount>(`thirdparties/${id}/bankaccounts`, undefined, init)
@@ -220,7 +221,7 @@ export declare function thirdpartiesTypes(this: DolibarrApi): {
 	 * @param	array		request_data	Datas
 	 * @return	Promise<Thirdparty>
 	 */
-	update: (id: number, data: Partial<Thirdparty>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Thirdparty>, init?: RequestInit) => Promise<Thirdparty>
 
 	/**
 	 * Get CompanyBankAccount objects for thirdparty
