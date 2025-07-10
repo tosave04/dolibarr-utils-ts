@@ -79,7 +79,7 @@ export declare function warehousesTypes(this: DolibarrApi): {
 	 * Update warehouse
 	 * @param	number				id				Id of warehouse to update
 	 * @param	Partial<Warehouse>	request_data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Warehouse>
 	 */
-	update: (id: number, data: Partial<Warehouse>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Warehouse>, init?: RequestInit) => Promise<Warehouse>
 }

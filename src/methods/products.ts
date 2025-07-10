@@ -405,9 +405,9 @@ export declare function productsTypes(this: DolibarrApi): {
 	 * Price will be updated by this API only if option is set on "One price per product". See other APIs for other price modes.
 	 * @param	number				id				Id of product to update
 	 * @param	Partial<Product>	request_data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Product>
 	 */
-	update: (id: number, data: Partial<Product>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Product>, init?: RequestInit) => Promise<Product>
 
 	/**
 	 * Get categories for a product

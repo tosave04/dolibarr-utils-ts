@@ -135,9 +135,9 @@ export declare function proposalsTypes(this: DolibarrApi): {
 	 * Update commercial proposal general fields (won't touch lines of commercial proposal)
 	 * @param	number				id		Id of commercial proposal to update
 	 * @param	Partial<Proposal>	data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Proposal>
 	 */
-	update: (id: number, data: Partial<Proposal>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Proposal>, init?: RequestInit) => Promise<Proposal>
 
 	/**
 	 * Close (Accept or refuse) a quote / commercial proposal

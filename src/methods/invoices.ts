@@ -202,9 +202,9 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	 * Update invoice
 	 * @param	number	id				Id of invoice to update
 	 * @param	array	request_data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Invoice>
 	 */
-	update: (id: number, data: Partial<Invoice>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Invoice>, init?: RequestInit) => Promise<Invoice>
 
 	/**
 	 * Delete a contact type of given invoice

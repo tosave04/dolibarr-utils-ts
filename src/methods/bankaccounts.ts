@@ -120,9 +120,9 @@ export declare function bankaccountsTypes(this: DolibarrApi): {
 	 * Update account
 	 * @param	number			id				ID of account
 	 * @param	Partial<BankAccount>	request_data	data
-	 * @return	Promise<number>
+	 * @return	Promise<BankAccount>
 	 */
-	update: (id: number, data: Partial<BankAccount>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<BankAccount>, init?: RequestInit) => Promise<BankAccount>
 
 	/**
 	 * Get the list of lines of the account.

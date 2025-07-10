@@ -72,7 +72,7 @@ export declare function agendaeventsTypes(this: DolibarrApi): {
 	 * Update Agenda Event general fields
 	 * @param	number			id				Id of Agenda Event to update
 	 * @param	Partial<Event>	request_data	Datas
-	 * @return Promise<number>
+	 * @return Promise<Event>
 	 */
-	update: (id: number, data: Partial<Event>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Event>, init?: RequestInit) => Promise<Event>
 }

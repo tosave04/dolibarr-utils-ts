@@ -113,7 +113,7 @@ export class DolibarrApi {
 	commonUpdate =
 		<T>(module: string) =>
 		(id: number, data: Partial<T>, init?: RequestInit) =>
-			this.update<number>(`${module}/${id}`, data, init)
+			this.update<T>(`${module}/${id}`, data, init)
 
 	commonUnlinkContact =
 		(module: string) =>

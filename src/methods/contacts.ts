@@ -11,8 +11,7 @@ export function contacts(this: DolibarrApi): ReturnType<typeof contactsTypes> {
 
 	const getById = this.commonGetById<{ includecount?: number; includeroles?: number }, Contact>("contacts")
 
-	const update = (id: number, data: Partial<Contact>, init?: RequestInit) =>
-		this.update<Contact>(`contacts/${id}`, data, init)
+	const update = this.commonUpdate<Contact>("contacts")
 
 	const getCategories = (
 		id: number,
@@ -119,7 +118,7 @@ export declare function contactsTypes(this: DolibarrApi): {
 	 * Update contact
 	 * @param	number				id		Id of contact to update
 	 * @param	Partial<Contact>	data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Contact>
 	 */
 	update: (id: number, data: Partial<Contact>, init?: RequestInit) => Promise<Contact>
 

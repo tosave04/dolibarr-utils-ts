@@ -90,9 +90,9 @@ export declare function ticketsTypes(this: DolibarrApi): {
 	 * Update ticket
 	 * @param	number		id					Id of ticket to update
 	 * @param	array		Partial<Ticket>		Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Ticket>
 	 */
-	update: (id: number, data: Partial<Ticket>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Ticket>, init?: RequestInit) => Promise<Ticket>
 
 	/**
 	 * Create ticket message object

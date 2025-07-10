@@ -134,9 +134,9 @@ export declare function categoriesTypes(this: DolibarrApi): {
 	 * Update category
 	 * @param 	number				id		Id of category to update
 	 * @param 	Partial<Category>)	data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Category>
 	 */
-	update: (id: number, data: Partial<Category>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Category>, init?: RequestInit) => Promise<Category>
 
 	/**
 	 * Get the list of objects in a category.

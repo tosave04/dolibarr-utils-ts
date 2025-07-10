@@ -77,9 +77,9 @@ export declare function savtosaveTypes(this: DolibarrApi): {
 	 * Update sav
 	 * @param	number	            id				Id of sav to update
 	 * @param	Partial<SavTosave>	request_data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<SavTosave>
 	 */
-	update: (id: number, data: Partial<SavTosave>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<SavTosave>, init?: RequestInit) => Promise<SavTosave>
 
 	/**
 	 * Update ckeckbox "a_valider"

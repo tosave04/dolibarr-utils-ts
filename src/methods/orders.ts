@@ -150,9 +150,9 @@ export declare function ordersTypes(this: DolibarrApi): {
 	 * Update order general fields (won't touch lines of order)
 	 * @param	number			id				Id of order to update
 	 * @param	Partial<Order>	request_data	Datas
-	 * @return	Promise<number>
+	 * @return	Promise<Order>
 	 */
-	update: (id: number, data: Partial<Order>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Order>, init?: RequestInit) => Promise<Order>
 
 	/**
 	 * Close an order (Classify it as "Delivered")

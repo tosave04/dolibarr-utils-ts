@@ -125,9 +125,9 @@ export declare function usersTypes(this: DolibarrApi): {
 	 * Update user account
 	 * @param	number			id				Id of account to update
 	 * @param	Partial<User>	request_data	Datas
-	 * @return	Promise<number>					Record after update
+	 * @return	Promise<User>					Record after update
 	 */
-	update: (id: number, data: Partial<User>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<User>, init?: RequestInit) => Promise<User>
 
 	/**
 	 * List the groups of a user

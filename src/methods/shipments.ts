@@ -91,7 +91,7 @@ export declare function shipmentsTypes(this: DolibarrApi): {
 	 * @param	array	Partial<Shipment>	Datas
 	 * @return	Promise<Shipment>
 	 */
-	update: (id: number, data: Partial<Shipment>, init?: RequestInit) => Promise<number>
+	update: (id: number, data: Partial<Shipment>, init?: RequestInit) => Promise<Shipment>
 
 	/**
 	 * Close a shipment (Classify it as "Delivered")
