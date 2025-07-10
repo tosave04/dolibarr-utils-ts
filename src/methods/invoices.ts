@@ -13,7 +13,7 @@ export function invoices(this: DolibarrApi): ReturnType<typeof invoicesTypes> {
 
 	const update = this.commonUpdate<Invoice>("invoices")
 
-	const unlinkContact = this.commonUnlinkContact("invoices")
+	const unlinkContact = this.commonUnlinkContact<Invoice>("invoices")
 
 	const linkContact = this.commomLinkContact("invoices")
 
@@ -211,28 +211,28 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	 * @param	number	id			Id of invoice to update
 	 * @param	number	contactid	Row key of the contact in the array contact_ids.
 	 * @param	string	type		Type of the contact (BILLING, SHIPPING, CUSTOMER).
-	 * @return	Promise<number>
+	 * @return	Promise<Invoice>
 	 */
 	unlinkContact: (
 		id: number,
 		contactid: number,
 		type: "BILLING" | "SHIPPING" | "CUSTOMER",
 		init?: RequestInit
-	) => Promise<number>
+	) => Promise<Invoice>
 
 	/**
 	 * Add a contact type of given invoice
 	 * @param	number	id			Id of invoice to update
 	 * @param	number	contactid	Id of contact to add
 	 * @param	string	type		Type of the contact (BILLING, SHIPPING, CUSTOMER)
-	 * @return	Promise<number>
+	 * @return	Promise<{ success: { code: number; message: string } }>
 	 */
 	linkContact: (
 		id: number,
 		contactid: number,
 		type: "BILLING" | "SHIPPING" | "CUSTOMER",
 		init?: RequestInit
-	) => Promise<number>
+	) => Promise<{ success: { code: number; message: string } }>
 
 	/**
 	 * Adds a contact to an invoice

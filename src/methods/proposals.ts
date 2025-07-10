@@ -15,7 +15,7 @@ export function proposals(this: DolibarrApi): ReturnType<typeof proposalsTypes> 
 
 	const close = this.commonClose<Proposal>("proposals")
 
-	const unlinkContact = this.commonUnlinkContact("proposals")
+	const unlinkContact = this.commonUnlinkContact<Proposal>("proposals")
 
 	const linkContact = (
 		id: number,
@@ -23,7 +23,12 @@ export function proposals(this: DolibarrApi): ReturnType<typeof proposalsTypes> 
 		type: "BILLING" | "SHIPPING" | "CUSTOMER" | "SALESREPFOLL",
 		source: "internal" | "external" = "external", // Neccessary for the API, otherwise it will return an error
 		init?: RequestInit
-	) => this.post<number>(`proposals/${id}/contact/${contactid}/${type}/${source}`, undefined, init)
+	) =>
+		this.post<{ success: { code: number; message: string } }>(
+			`proposals/${id}/contact/${contactid}/${type}/${source}`,
+			undefined,
+			init
+		)
 
 	const addLine = this.commonAddLine("proposals")
 
@@ -162,14 +167,14 @@ export declare function proposalsTypes(this: DolibarrApi): {
 	 * @param	number	id			Id of commercial proposal to update
 	 * @param	number	contactid	Row key of the contact in the array contact_ids.
 	 * @param	string	type		Type of the contact (BILLING, SHIPPING, CUSTOMER).
-	 * @return	Promise<number>
+	 * @return	Promise<Proposal>
 	 */
 	unlinkContact: (
 		id: number,
 		contactid: number,
 		type: "BILLING" | "SHIPPING" | "CUSTOMER",
 		init?: RequestInit
-	) => Promise<number>
+	) => Promise<Proposal>
 
 	/**
 	 * Add a contact type of given commercial proposal
@@ -177,7 +182,7 @@ export declare function proposalsTypes(this: DolibarrApi): {
 	 * @param	number	contactid	Id of contact to add
 	 * @param	string	type		Type of the external contact (BILLING, SHIPPING, CUSTOMER), internal contact (SALESREPFOLL)
 	 * @param	string	source		Source of the contact (internal, external) [default external]
-	 * @return	Promise<number>
+	 * @return	Promise<{ success: { code: number; message: string } }>
 	 */
 	linkContact: (
 		id: number,
@@ -185,7 +190,7 @@ export declare function proposalsTypes(this: DolibarrApi): {
 		type: "BILLING" | "SHIPPING" | "CUSTOMER" | "SALESREPFOLL",
 		source?: "internal" | "external",
 		init?: RequestInit
-	) => Promise<number>
+	) => Promise<{ success: { code: number; message: string } }>
 
 	/**
 	 * Add a line to given commercial proposal

@@ -17,7 +17,7 @@ export function orders(this: DolibarrApi): ReturnType<typeof ordersTypes> {
 
 	const close = this.commonClose<number>("orders")
 
-	const unlinkContact = this.commonUnlinkContact("orders")
+	const unlinkContact = this.commonUnlinkContact<Order>("orders")
 
 	const linkContact = this.commomLinkContact("orders")
 
@@ -175,28 +175,28 @@ export declare function ordersTypes(this: DolibarrApi): {
 	 * @param	number	id			Id of order to update
 	 * @param	number	contactid	Id of contact
 	 * @param	string	type		Type of the contact (BILLING, SHIPPING, CUSTOMER).
-	 * @return	Promise<number>
+	 * @return	Promise<Order>
 	 */
 	unlinkContact: (
 		id: number,
 		contactid: number,
 		type: "BILLING" | "SHIPPING" | "CUSTOMER",
 		init?: RequestInit
-	) => Promise<number>
+	) => Promise<Order>
 
 	/**
 	 * Add a contact type of given order
 	 * @param	number	id			Id of order to update
 	 * @param	number	contactid	Id of contact to add
 	 * @param	string	type		Type of the contact (BILLING, SHIPPING, CUSTOMER)
-	 * @return	Promise<number>
+	 * @return	Promise<{ success: { code: number; message: string } }>
 	 */
 	linkContact: (
 		id: number,
 		contactid: number,
 		type: "BILLING" | "SHIPPING" | "CUSTOMER",
 		init?: RequestInit
-	) => Promise<number>
+	) => Promise<{ success: { code: number; message: string } }>
 
 	/**
 	 * Get contacts of given order

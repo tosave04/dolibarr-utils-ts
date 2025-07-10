@@ -116,14 +116,18 @@ export class DolibarrApi {
 			this.update<T>(`${module}/${id}`, data, init)
 
 	commonUnlinkContact =
-		(module: string) =>
+		<T>(module: string) =>
 		(id: number, contactid: number, type: "BILLING" | "SHIPPING" | "CUSTOMER", init?: RequestInit) =>
-			this.delete<number>(`${module}/${id}/contact/${contactid}/${type}`, undefined, init)
+			this.delete<T>(`${module}/${id}/contact/${contactid}/${type}`, undefined, init)
 
 	commomLinkContact =
 		(module: string) =>
 		(id: number, contactid: number, type: "BILLING" | "SHIPPING" | "CUSTOMER", init?: RequestInit) =>
-			this.post<number>(`${module}/${id}/contact/${contactid}/${type}`, undefined, init)
+			this.post<{ success: { code: number; message: string } }>(
+				`${module}/${id}/contact/${contactid}/${type}`,
+				undefined,
+				init
+			)
 
 	commonClose =
 		<R>(module: string) =>
