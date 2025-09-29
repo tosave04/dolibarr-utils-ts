@@ -1,4 +1,5 @@
 // Exporting Dolibarr methods
+export * from "./AgendaEvent.interface"
 export * from "./BankAccount.interfaces"
 export * from "./BankAccountLine.interfaces"
 export * from "./BusinessLegalForm.interfaces"
@@ -32,6 +33,7 @@ export * from "./PaymentType.interfaces"
 export * from "./Pdf.interfaces"
 export * from "./Product.interfaces"
 export * from "./Proposal.interfaces"
+export * from "./RecordUnknown.interface"
 export * from "./Representative.interfaces"
 export * from "./Shipment.interfaces"
 export * from "./ShipmentLine.interfaces"

@@ -1,24 +1,22 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
 import type { Category } from "../interfaces/Category.interfaces.js"
 import type { Product } from "../interfaces/Product.interfaces.js"
+import type { RecordUnknown } from "../interfaces/RecordUnknown.interface.js"
 
 // TODO: Add missing parameters
-type ProductSupplier = Record<string, unknown>
+type ProductSupplier = RecordUnknown
 
 // TODO: Add missing parameters
-type ProductPriceLine = Record<string, unknown>
+type ProductPriceLine = RecordUnknown
 
 // TODO: Add missing parameters
-type ProductVariant = Record<string, unknown>
+type ProductVariant = RecordUnknown
 
 // TODO: Add missing parameters
-type ProductAttribute = Record<string, unknown>
+type ProductAttribute = RecordUnknown
 
 // TODO: Add missing parameters
-type ProductAttributeValue = Record<string, unknown>
-
-// TODO: Add missing parameters
-type ProductPropertie = Record<string, unknown>
+type ProductAttributeValue = RecordUnknown
 
 export function products(this: DolibarrApi): ReturnType<typeof productsTypes> {
 	const list = this.commonList<ProductsListParameters, Product>("products")
@@ -193,7 +191,7 @@ export function products(this: DolibarrApi): ReturnType<typeof productsTypes> {
 			includetrans?: boolean
 		},
 		init?: RequestInit
-	) => this.get<ProductPropertie[]>(`products/barcode/${barcode}`, parameters, init)
+	) => this.get<Product>(`products/barcode/${barcode}`, parameters, init)
 
 	const purchasePricesList = (
 		parameters?: {
@@ -765,7 +763,7 @@ export declare function productsTypes(this: DolibarrApi): {
 	 * @param	bool	parameters.includesubproducts	Load information about subproducts
 	 * @param	bool	parameters.includeparentid		Load also ID of parent product (if product is a variant of a parent product)
 	 * @param	bool	parameters.includetrans			Load also the translations of product label and description
-	 * @return	Promise<ProductPropertie[]>		Data	without useless information
+	 * @return	Promise<Product>		Data	without useless information
 	 */
 	getByBarcode: (
 		barcode: string,
@@ -776,7 +774,7 @@ export declare function productsTypes(this: DolibarrApi): {
 			includetrans?: boolean
 		},
 		init?: RequestInit
-	) => Promise<ProductPropertie[]>
+	) => Promise<Product>
 
 	/**
 	 * Get a list of all purchase prices of products

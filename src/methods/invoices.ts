@@ -1,6 +1,13 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
 import type { Invoice } from "../interfaces/Invoice.interfaces.js"
 import type { Line } from "../interfaces/Line.interfaces.js"
+import type { RecordUnknown } from "../interfaces/RecordUnknown.interface.js"
+
+// TODO: Add missing parameters
+type DiscountAbsolute = RecordUnknown
+
+// TODO: Add missing parameters
+type TemplateInvoice = RecordUnknown
 
 export function invoices(this: DolibarrApi): ReturnType<typeof invoicesTypes> {
 	const list = this.commonList<InvoicesListParameters, Invoice>("invoices")
@@ -24,7 +31,7 @@ export function invoices(this: DolibarrApi): ReturnType<typeof invoicesTypes> {
 	) => this.post<Invoice>(`invoices/${id}/contacts`, data, init)
 
 	const getDiscount = (id: number, init?: RequestInit) =>
-		this.get<Record<string, unknown>>(`invoices/${id}/discount`, undefined, init)
+		this.get<DiscountAbsolute>(`invoices/${id}/discount`, undefined, init)
 
 	const getLines = this.commonGetLines("invoices")
 
@@ -99,7 +106,7 @@ export function invoices(this: DolibarrApi): ReturnType<typeof invoicesTypes> {
 	const getByRef = this.commonGetByRef<{ contact_list?: -1 | 0 | 1 }, Invoice>("invoices")
 
 	const getTemplate = (id: number, contact_list?: -1 | 0 | 1, init?: RequestInit) =>
-		this.get<Record<string, unknown>>(`invoices/templates/${id}`, { contact_list }, init)
+		this.get<TemplateInvoice>(`invoices/templates/${id}`, { contact_list }, init)
 
 	return {
 		list,
@@ -259,7 +266,7 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	 * @param	number	id	Id of invoice
 	 * @return	Promise<DiscountAbsolute>
 	 */
-	getDiscount: (id: number, init?: RequestInit) => Promise<Record<string, unknown>>
+	getDiscount: (id: number, init?: RequestInit) => Promise<DiscountAbsolute>
 
 	/**
 	 * Get lines of an invoice
@@ -513,5 +520,5 @@ export declare function invoicesTypes(this: DolibarrApi): {
 	 * @param	number	contact_list		0:Return array contains all properties, 1:Return array contains just id, -1: Do not return contacts/adddesses
 	 * @return	Promise<TemplateInvoice>	data without useless information
 	 */
-	getTemplate: (id: number, contact_list?: -1 | 0 | 1, init?: RequestInit) => Promise<Record<string, unknown>>
+	getTemplate: (id: number, contact_list?: -1 | 0 | 1, init?: RequestInit) => Promise<TemplateInvoice>
 }

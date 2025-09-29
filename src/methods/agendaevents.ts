@@ -1,17 +1,16 @@
 import { DolibarrApi } from "../DolibarrApi.class.js"
-
-type Event = Record<string, unknown>
+import type { AgendaEvent } from "../interfaces/AgendaEvent.interface.js"
 
 export function agendaevents(this: DolibarrApi): ReturnType<typeof agendaeventsTypes> {
-	const list = this.commonList<EventListParameters, Event>("agendaevents")
+	const list = this.commonList<EventListParameters, AgendaEvent>("agendaevents")
 
-	const create = this.commonCreate<Event>("agendaevents")
+	const create = this.commonCreate<AgendaEvent>("agendaevents")
 
 	const deleteObject = this.commonDelete("agendaevents")
 
-	const getById = this.commonGetById<{}, Event>("agendaevents")
+	const getById = this.commonGetById<{}, AgendaEvent>("agendaevents")
 
-	const update = this.commonUpdate<Event>("agendaevents")
+	const update = this.commonUpdate<AgendaEvent>("agendaevents")
 
 	return {
 		list,
@@ -42,16 +41,16 @@ export declare function agendaeventsTypes(this: DolibarrApi): {
 	 * @param	string	user_ids	User ids filter field (owners of event). Example: '1' or '1,2,3'          {@pattern /^[0-9,]*$/i}
 	 * @param	string	sqlfilters	Other criteria to filter answers separated by a comma. Syntax example "(t.label:like:'%dol%') and (t.datec:<:'20160101')"
 	 * @param	string	properties	Restrict the data returned to these properties. Ignored if empty. Comma separated list of properties names
-	 * @return	Promise<Event[]>	Array of Agenda Events objects
+	 * @return	Promise<AgendaEvent[]>	Array of Agenda Events objects
 	 */
-	list: (parameters?: EventListParameters | undefined, init?: RequestInit) => Promise<Event[]>
+	list: (parameters?: EventListParameters | undefined, init?: RequestInit) => Promise<AgendaEvent[]>
 
 	/**
 	 * Create Agenda Event object
 	 * @param	array	request_data	Request data
 	 * @return	Promise<number>			ID of Agenda Event
 	 */
-	create: (data: Partial<Event>, init?: RequestInit) => Promise<number>
+	create: (data: Partial<AgendaEvent>, init?: RequestInit) => Promise<number>
 
 	/**
 	 * Delete Agenda Event
@@ -64,15 +63,15 @@ export declare function agendaeventsTypes(this: DolibarrApi): {
 	 * Get properties of a Agenda Events object
 	 * Return an array with Agenda Events informations
 	 * @param	number			id		ID of Agenda Events
-	 * @return	Promise<Event>	Data 	without useless information
+	 * @return	Promise<AgendaEvent>	Data 	without useless information
 	 */
-	getById: (id: number, parameters?: {} | undefined, init?: RequestInit) => Promise<Event>
+	getById: (id: number, parameters?: {} | undefined, init?: RequestInit) => Promise<AgendaEvent>
 
 	/**
 	 * Update Agenda Event general fields
 	 * @param	number			id				Id of Agenda Event to update
-	 * @param	Partial<Event>	request_data	Datas
-	 * @return Promise<Event>
+	 * @param	Partial<AgendaEvent>	request_data	Datas
+	 * @return Promise<AgendaEvent>
 	 */
-	update: (id: number, data: Partial<Event>, init?: RequestInit) => Promise<Event>
+	update: (id: number, data: Partial<AgendaEvent>, init?: RequestInit) => Promise<AgendaEvent>
 }
