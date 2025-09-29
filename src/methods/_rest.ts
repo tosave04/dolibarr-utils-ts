@@ -17,9 +17,11 @@ export async function get<R>(
 	)
 
 	if (!response.ok) {
+		await consumeBodySafely(response) // consumes resources to release them in case of an error
 		throw new Error(response.statusText)
 	}
-	return response.json()
+
+	return response.json() // body consumed normally
 }
 
 export async function post<R>(
@@ -32,9 +34,12 @@ export async function post<R>(
 		composeUrl(this.api_url, input),
 		initAggregation({ method: "POST", api_key: this.api_key, data, init })
 	)
+
 	if (!response.ok) {
+		await consumeBodySafely(response)
 		throw new Error(response.statusText)
 	}
+
 	return response.json()
 }
 
@@ -48,9 +53,12 @@ export async function put<R>(
 		composeUrl(this.api_url, input),
 		initAggregation({ method: "PUT", api_key: this.api_key, data, init })
 	)
+
 	if (!response.ok) {
+		await consumeBodySafely(response)
 		throw new Error(response.statusText)
 	}
+
 	return response.json()
 }
 
@@ -64,9 +72,12 @@ export async function patch<R>(
 		composeUrl(this.api_url, input),
 		initAggregation({ method: "PATCH", api_key: this.api_key, data, init })
 	)
+
 	if (!response.ok) {
+		await consumeBodySafely(response)
 		throw new Error(response.statusText)
 	}
+
 	return response.json()
 }
 
@@ -83,9 +94,12 @@ export async function deleteRequest<R>(
 		composeUrl(this.api_url, inputWithSearchParams),
 		initAggregation({ method: "DELETE", api_key: this.api_key, init })
 	)
+
 	if (!response.ok) {
+		await consumeBodySafely(response)
 		throw new Error(response.statusText)
 	}
+
 	return response.json()
 }
 
@@ -129,4 +143,10 @@ const initAggregation = ({
 	}
 
 	return newInit
+}
+
+async function consumeBodySafely(response: Response) {
+	try {
+		await response.arrayBuffer() // reads the entire stream and releases memory
+	} catch {}
 }
